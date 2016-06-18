@@ -22,6 +22,12 @@ static NSString *identifier = @"DS_FindCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSourceArray = [DSMineControllerManager dataSources];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeLanguageSwtich) name:KLanguageSwitching object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]  removeObserver:self forKeyPath:KLanguageSwitching];
 }
 
 #pragma mark  - overwrite
@@ -83,5 +89,15 @@ static NSString *identifier = @"DS_FindCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma markk - pravite funs
+//监听到应用内切换语言
+- (void)noticeLanguageSwtich
+{
+    self.title = DS_CustomLocalizedString(@"mine", nil);
+    self.dataSourceArray = [DSMineControllerManager dataSources];
+    [self.tableView reloadData];
+    DS_MineSettingController *setVc = [[DS_MineSettingController alloc] init];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
 
 @end

@@ -31,6 +31,19 @@ static NSString *const login = @"isFirstApp";
     return [[NSUserDefaults standardUserDefaults] objectForKey:AppLanguage];
 }
 
++ (void)saveOldLanguage
+{
+    NSString *oldLanguage = [DS_CurrentSystemTool readCurrentAppLanguage];
+    if (![oldLanguage isEqualToString:@""] && oldLanguage) {
+        [[NSUserDefaults standardUserDefaults] setObject:oldLanguage forKey:AppLanguageOld];
+    }
+}
+
++ (NSString *)readOldLanguage
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:AppLanguageOld];
+}
+
 + (NSString *)currentSetLanguageKey
 {
     NSString *currentLanguage = [DS_CurrentSystemTool readCurrentAppLanguage];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D302A6FD1D14F2B000866EB2 /* DS_MineSettingControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */; };
+		D302A7001D15056B00866EB2 /* DS_MineGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */; };
 		D303A9161D0703D200C2CA3A /* DS_ChatBubblePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */; };
 		D303A9191D0708C400C2CA3A /* DS_ChatBubbleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9181D0708C400C2CA3A /* DS_ChatBubbleTextView.m */; };
 		D303A91C1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A91B1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m */; };
@@ -391,6 +392,8 @@
 /* Begin PBXFileReference section */
 		D302A6FB1D14F2B000866EB2 /* DS_MineSettingControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineSettingControllerManager.h; sourceTree = "<group>"; };
 		D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineSettingControllerManager.m; sourceTree = "<group>"; };
+		D302A6FE1D15056B00866EB2 /* DS_MineGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineGeneralController.h; sourceTree = "<group>"; };
+		D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineGeneralController.m; sourceTree = "<group>"; };
 		D3035CFF1CE4C7E100689A25 /* DS_mainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_mainHeader.h; sourceTree = "<group>"; };
 		D303A9141D0703D200C2CA3A /* DS_ChatBubblePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ChatBubblePictureView.h; sourceTree = "<group>"; };
 		D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ChatBubblePictureView.m; sourceTree = "<group>"; };
@@ -2624,6 +2627,8 @@
 				D31C34991D13D05D00F96980 /* DS_MineSettingController.m */,
 				D302A6FB1D14F2B000866EB2 /* DS_MineSettingControllerManager.h */,
 				D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */,
+				D302A6FE1D15056B00866EB2 /* DS_MineGeneralController.h */,
+				D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3132,6 +3137,7 @@
 				D33BC6D31CC7B76300D0DE02 /* DDAbstractDatabaseLogger.m in Sources */,
 				D30DB56A1CFB1554008B1B5D /* DS_FindCell.m in Sources */,
 				D33BC7211CC7B76300D0DE02 /* XMPPMessageArchiving.m in Sources */,
+				D302A7001D15056B00866EB2 /* DS_MineGeneralController.m in Sources */,
 				D33BC6DB1CC7B76300D0DE02 /* XMPPBandwidthMonitor.m in Sources */,
 				D33BC6C11CC7B76300D0DE02 /* NSData+XMPP.m in Sources */,
 				D33BC6CA1CC7B76300D0DE02 /* XMPPPresence.m in Sources */,

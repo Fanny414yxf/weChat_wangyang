@@ -20,6 +20,7 @@
 + (NSString *)readCurrentAppLanguage;
 + (NSString *)currentSetLanguageKey;
 + (NSDictionary *)appAllLanguages;
++ (void)saveOldLanguage;
 
 
 @end

@@ -33,11 +33,15 @@ static NSString *identifier = @"DS_WeChatViewCell";
     [self.view addSubview:self.seachBarView];
     self.searchController.active = NO;
     self.dataSourceArray = [DS_WeChatControllerManager dataSource];
-    [self.shadeView addSubview:self.menuItem];
-    [self.view addSubview:self.shadeView];
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, UISCREENWIDTH, 49)];
     [self initWithTabBar];
     [self blockCallBack];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeLanguageSwtich) name:KLanguageSwitching object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]  removeObserver:self forKeyPath:KLanguageSwitching];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -123,9 +127,22 @@ static NSString *identifier = @"DS_WeChatViewCell";
 {
     self.navigationItem.rightBarButtonItem = [UINavigationItem rightBarButtonItemWithTarget:self action:@selector(rightItemAction) normalImage:nil highLightImage:nil];
 }
+//监听到应用内切换语言
+- (void)noticeLanguageSwtich
+{
+    self.title = DS_CustomLocalizedString(@"weChat", nil);
+    [self.tableView reloadData];
+}
 
 - (void)rightItemAction
 {
+    if ([self.shadeView superview]) {
+        [self.shadeView removeFromSuperview];
+        [self.menuItem removeFromSuperview];
+        self.menuItem = nil;
+    }
+    [self.shadeView addSubview:self.menuItem];
+    [self.view addSubview:self.shadeView];
     self.shadeView.hidden = !self.shadeView.hidden;
 }
 
@@ -203,8 +220,17 @@ static NSString *identifier = @"DS_WeChatViewCell";
 {
     if (!_menuItem) {
         NSArray *arr = [DS_WeChatControllerManager menuDataSource];
-        _menuItem = [[DS_WeChatAddItemView alloc] initWithMenu:[DS_WeChatControllerManager menuDataSource]];
-        CGFloat w = 150;
+        _menuItem = [[DS_WeChatAddItemView alloc] initWithMenu:arr];
+        NSInteger maxWidth = 0;
+        NSString *recordMaxText = nil;
+        for (DS_WechatMenuModel *model in arr) {
+            if (model.title.length>maxWidth) {
+                maxWidth = model.title.length;
+                recordMaxText = model.title;
+            }
+        }
+        CGRect rect = [recordMaxText boundingRectWithSize:CGSizeMake(UISCREENWIDTH, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.]} context:nil];
+        CGFloat w = rect.size.width + 90;
         CGFloat x = UISCREENWIDTH - w - 5;
         CGFloat h = arr.count * 40 + 9;
         CGFloat y = 5;

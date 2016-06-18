@@ -49,5 +49,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:nil]
 
 
+//保存旧的设置语言
+#define AppLanguageOld @"appLanguageOld"
+#define DS_CustomLocalizedOldString(key, comment) \
+[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguageOld"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:nil]
+
+//应用内切换语言通知
+#define KLanguageSwitching @"LanguageSwitching"
+
+
 
 

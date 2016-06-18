@@ -37,6 +37,12 @@ static NSString *searchIdentifier = @"DS_WeChatViewCell";
     self.searchController.active = NO;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, UISCREENWIDTH, 49)];
     [self blockCallBack];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeLanguageSwtich) name:KLanguageSwitching object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:KLanguageSwitching];
 }
 
 #pragma mark - overwirte
@@ -159,6 +165,14 @@ static NSString *searchIdentifier = @"DS_WeChatViewCell";
             [self.tableView reloadData];
         });
     }];
+}
+
+#pragma markk - pravite funs
+//监听到应用内切换语言
+- (void)noticeLanguageSwtich
+{
+    self.title = DS_CustomLocalizedString(@"address", nil);
+    [self blockCallBack];
 }
 
 #pragma mark - UISearchBarDelegate

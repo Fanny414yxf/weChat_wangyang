@@ -26,9 +26,29 @@
         self = [[[NSBundle mainBundle] loadNibNamed:@"DSTabBarItem" owner:nil options:nil] lastObject];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemClicked)];
         [self addGestureRecognizer:tap];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeLanguageSwtich) name:KLanguageSwitching object:nil];
         self.selected = NO;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)noticeLanguageSwtich
+{
+    if ([self.titleLabel.text isEqualToString:DS_CustomLocalizedOldString(@"weChat",nil)]) {
+        self.titleLabel.text = DS_CustomLocalizedString(@"weChat", nil);
+    }else if ([self.titleLabel.text isEqualToString:DS_CustomLocalizedOldString(@"address",nil)]) {
+        self.titleLabel.text = DS_CustomLocalizedString(@"address", nil);
+    }else if ([self.titleLabel.text isEqualToString:DS_CustomLocalizedOldString(@"find",nil)]) {
+        self.titleLabel.text = DS_CustomLocalizedString(@"find", nil);
+    }else if ([self.titleLabel.text isEqualToString:DS_CustomLocalizedOldString(@"mine",nil)]) {
+        self.titleLabel.text = DS_CustomLocalizedString(@"mine", nil);
+    }
+    
 }
 
 - (void)setItem:(UITabBarItem *)item

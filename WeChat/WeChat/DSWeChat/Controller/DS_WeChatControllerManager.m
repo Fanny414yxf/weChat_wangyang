@@ -157,19 +157,19 @@
 {
     DS_WechatMenuModel *model = [[DS_WechatMenuModel alloc] init];
     model.icon = @"menu_add_newmessage_icon.png";
-    model.title = @"发起群聊";
+    model.title = DS_CustomLocalizedString(@"Group Chat", nil);
     
     DS_WechatMenuModel *model1 = [[DS_WechatMenuModel alloc] init];
     model1.icon = @"barbuttonicon_add_cube.png";
-    model1.title = @"添加朋友";
+    model1.title = DS_CustomLocalizedString(@"Add Contacts", nil);
     
     DS_WechatMenuModel *model2 = [[DS_WechatMenuModel alloc] init];
     model2.icon = @"contacts_add_scan.png";
-    model2.title = @"扫一扫";
+    model2.title = DS_CustomLocalizedString(@"Scan QR Code", nil);
     
     DS_WechatMenuModel *model3 = [[DS_WechatMenuModel alloc] init];
     model3.icon = @"menu_add_newmessage_icon.png";
-    model3.title = @"收付款";
+    model3.title = DS_CustomLocalizedString(@"Money", nil);
     
     return @[model,model1,model2,model3];
 }

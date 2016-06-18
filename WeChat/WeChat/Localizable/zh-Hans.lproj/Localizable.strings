@@ -17,6 +17,10 @@
 "find" = "发现";
 "mine" = "我";
 "search" = "搜索";
+"Group Chat" = "发起群聊";
+"Add Contacts" = "添加朋友";
+"Money" = "收付款";
+"Scan QR Code" = "扫一扫";
 "searchListCell" = "朋友圈、公众号、文章等";
 "newFriends" = "新的朋友";
 "GroupChat" = "群聊";

@@ -132,7 +132,6 @@ static NSString *identifier = @"DS_AddressContactDetailCell";
     
     self.bottomView.videoChatBlock = ^(){
         DS_ActionSheetView *action = [[DS_ActionSheetView alloc] initWithTitles:@[@"视频聊天",@"语音聊天"] delegate:weakSelf cancelButtonTitle:@"取消"];
-        action.backgroundColor = [UIColor redColor];
         [action showInView:weakSelf.view];
     };
 }

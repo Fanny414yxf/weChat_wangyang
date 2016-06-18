@@ -21,6 +21,22 @@ NSString *const KSELECTEDITEMNOTI = @"kselectedNoti";
 @end
 
 @implementation DSTabBar
+//- (instancetype)init
+//{
+//    if (self = [super init]) {
+//        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeLanguageSwtich) name:KLanguageSwitching object:nil];
+//    }
+//    return self;
+//}
+//
+//- (void)noticeLanguageSwtich
+//{
+//    for (DSTabBarItem *tabBarItem in self.subviews) {
+////        tabBarItem
+//        NSLog(@"");
+//    }
+//}
 
 - (void)tabBarWithTabBarItem:(UITabBarItem *)item
 {

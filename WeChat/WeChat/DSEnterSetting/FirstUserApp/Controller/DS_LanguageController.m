@@ -98,7 +98,12 @@
         return;
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+    [DS_CurrentSystemTool saveOldLanguage];
     [DS_CurrentSystemTool saveSetLanguage:_selectedLanguageType];
+    
+    if ([self.delegate respondsToSelector:@selector(languageControllerBack:)]) {
+        [self.delegate languageControllerBack:self];
+    }
 }
 
 - (void)updateViewConstraints

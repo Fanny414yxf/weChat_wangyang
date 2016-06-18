@@ -127,7 +127,7 @@ static NSString *identifier = @"DS_WeChatMenuCell";
 {
     _model = model;
     self.iconImageView.image = [UIImage imageNamed:model.icon];
-    self.titleLabel.text = DS_CustomLocalizedString(model.title, nil);
+    self.titleLabel.text = model.title;
 }
 
 - (UIImageView *)iconImageView
