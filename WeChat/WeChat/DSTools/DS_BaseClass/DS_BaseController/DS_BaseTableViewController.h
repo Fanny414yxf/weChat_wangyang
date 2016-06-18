@@ -50,5 +50,6 @@ typedef void (^tableViewCellBlock)(UITableView *tableView,UITableViewCell *cell,
 @end
 
 @interface DS_LanguageCell : UITableViewCell
-
+//默认样式
+@property (nonatomic,assign)BOOL selectedState;
 @end

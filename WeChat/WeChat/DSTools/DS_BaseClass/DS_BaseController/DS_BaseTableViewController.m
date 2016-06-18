@@ -67,7 +67,9 @@ static NSString *identifier = @"UITableViewCellDS";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DS_LanguageCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    self.cellBlock(tableView,cell,indexPath,self.dataSourceArray[indexPath.row]);
+    if (self.cellBlock) {
+        self.cellBlock(tableView,cell,indexPath,self.dataSourceArray[indexPath.row]);
+    }
     return cell;
 }
 
@@ -75,8 +77,8 @@ static NSString *identifier = @"UITableViewCellDS";
 {
     if (self.cellClickBlock) {
         self.cellClickBlock(tableView,nil,indexPath,self.dataSourceArray[indexPath.row]);
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,9 +285,12 @@ static NSString *identifier = @"UITableViewCellDS";
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
+    if (!_selectedState) {
+        return;
+    }
     if (selected) {
         self.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else {
+    }else{
         self.accessoryType = UITableViewCellAccessoryNone;
     }
 }

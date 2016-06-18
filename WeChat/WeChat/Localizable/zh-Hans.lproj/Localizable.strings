@@ -56,5 +56,12 @@
 "personCard" = "个人名片";
 "voiceInput" = "语音输入";
 "card" = "卡券";
+"AccountSecurity" = "账号与安全";
+"newNotice" = "新消息通知";
+"privacy" = "隐私";
+"general" = "通用";
+"HelpAndFeedback" = "帮助与反馈";
+"aboutWeChat" = "关于微信";
+"LogOut" = "退出登录";
 
 

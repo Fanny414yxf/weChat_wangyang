@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D302A6FD1D14F2B000866EB2 /* DS_MineSettingControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */; };
 		D303A9161D0703D200C2CA3A /* DS_ChatBubblePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */; };
 		D303A9191D0708C400C2CA3A /* DS_ChatBubbleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9181D0708C400C2CA3A /* DS_ChatBubbleTextView.m */; };
 		D303A91C1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A91B1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m */; };
@@ -89,6 +90,7 @@
 		D31AFFAD1CE89B59004C2249 /* DS_WeChatListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AFFAC1CE89B59004C2249 /* DS_WeChatListModel.m */; };
 		D31AFFB01CE89C07004C2249 /* DS_WeChatControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AFFAF1CE89C07004C2249 /* DS_WeChatControllerManager.m */; };
 		D31AFFB61CE8AF79004C2249 /* UILabel+DSAdaptContent.m in Sources */ = {isa = PBXBuildFile; fileRef = D31AFFB51CE8AF79004C2249 /* UILabel+DSAdaptContent.m */; };
+		D31C349A1D13D05D00F96980 /* DS_MineSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31C34991D13D05D00F96980 /* DS_MineSettingController.m */; };
 		D3235F7D1CE7677300D235CF /* DSLocalizable.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3235F7C1CE7677300D235CF /* DSLocalizable.plist */; };
 		D3235F811CE77C6800D235CF /* NSTimer+ScheduleTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235F801CE77C6800D235CF /* NSTimer+ScheduleTimer.m */; };
 		D3235F8A1CE7807300D235CF /* UIViewController+DSNaviBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235F891CE7807300D235CF /* UIViewController+DSNaviBarItem.m */; };
@@ -387,6 +389,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D302A6FB1D14F2B000866EB2 /* DS_MineSettingControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineSettingControllerManager.h; sourceTree = "<group>"; };
+		D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineSettingControllerManager.m; sourceTree = "<group>"; };
 		D3035CFF1CE4C7E100689A25 /* DS_mainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_mainHeader.h; sourceTree = "<group>"; };
 		D303A9141D0703D200C2CA3A /* DS_ChatBubblePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ChatBubblePictureView.h; sourceTree = "<group>"; };
 		D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ChatBubblePictureView.m; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 		D31AFFAF1CE89C07004C2249 /* DS_WeChatControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_WeChatControllerManager.m; sourceTree = "<group>"; };
 		D31AFFB41CE8AF79004C2249 /* UILabel+DSAdaptContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DSAdaptContent.h"; sourceTree = "<group>"; };
 		D31AFFB51CE8AF79004C2249 /* UILabel+DSAdaptContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DSAdaptContent.m"; sourceTree = "<group>"; };
+		D31C34981D13D05D00F96980 /* DS_MineSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineSettingController.h; sourceTree = "<group>"; };
+		D31C34991D13D05D00F96980 /* DS_MineSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineSettingController.m; sourceTree = "<group>"; };
 		D3235F7C1CE7677300D235CF /* DSLocalizable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSLocalizable.plist; sourceTree = "<group>"; };
 		D3235F7F1CE77C6800D235CF /* NSTimer+ScheduleTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+ScheduleTimer.h"; sourceTree = "<group>"; };
 		D3235F801CE77C6800D235CF /* NSTimer+ScheduleTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+ScheduleTimer.m"; sourceTree = "<group>"; };
@@ -2614,6 +2620,10 @@
 				D3ED16B41BEB580B00F74219 /* DSMineController.m */,
 				D30DB5981CFB3534008B1B5D /* DSMineControllerManager.h */,
 				D30DB5991CFB3534008B1B5D /* DSMineControllerManager.m */,
+				D31C34981D13D05D00F96980 /* DS_MineSettingController.h */,
+				D31C34991D13D05D00F96980 /* DS_MineSettingController.m */,
+				D302A6FB1D14F2B000866EB2 /* DS_MineSettingControllerManager.h */,
+				D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3126,11 +3136,13 @@
 				D33BC6C11CC7B76300D0DE02 /* NSData+XMPP.m in Sources */,
 				D33BC6CA1CC7B76300D0DE02 /* XMPPPresence.m in Sources */,
 				D377AA1C1BE8AB3100196714 /* WYLabel.m in Sources */,
+				D302A6FD1D14F2B000866EB2 /* DS_MineSettingControllerManager.m in Sources */,
 				D33BC7171CC7B76300D0DE02 /* NSString+XEP_0106.m in Sources */,
 				D33BC6D41CC7B76300D0DE02 /* DDASLLogger.m in Sources */,
 				D33BC6E31CC7B76300D0DE02 /* XMPPRosterCoreDataStorage.m in Sources */,
 				D310FF9A1CFDD590004E6087 /* DS_FriendCricleControllerManager.m in Sources */,
 				D33BC6E51CC7B76300D0DE02 /* XMPPResourceMemoryStorageObject.m in Sources */,
+				D31C349A1D13D05D00F96980 /* DS_MineSettingController.m in Sources */,
 				D3235F811CE77C6800D235CF /* NSTimer+ScheduleTimer.m in Sources */,
 				D33BC7191CC7B76300D0DE02 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				D3ED16B21BEB57FD00F74219 /* DSFindController.m in Sources */,

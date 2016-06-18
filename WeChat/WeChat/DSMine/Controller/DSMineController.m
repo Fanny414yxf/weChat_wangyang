@@ -10,6 +10,7 @@
 #import "DS_FindCell.h"
 #import "DSMineControllerManager.h"
 #import "DS_FindCellModel.h"
+#import "DS_MineSettingController.h"
 
 static NSString *identifier = @"DS_FindCell";
 @interface DSMineController ()
@@ -73,6 +74,12 @@ static NSString *identifier = @"DS_FindCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DS_FindCellModel *model = self.dataSourceArray[indexPath.section][indexPath.row];
+    //跳转设置
+    if ([model.title isEqualToString:DS_CustomLocalizedString(@"setting", nil)]) {
+        DS_MineSettingController *setVc = [[DS_MineSettingController alloc] init];
+        [self.navigationController pushViewController:setVc animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

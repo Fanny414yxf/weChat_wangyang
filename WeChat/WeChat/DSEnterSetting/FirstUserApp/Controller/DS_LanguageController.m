@@ -26,22 +26,25 @@
     [self setNavigationBarItem];
     _selectedLanguageType = [DS_CurrentSystemTool readCurrentAppLanguage];
     [self tableViewCellBlock:^(UITableView *tableView,UITableViewCell *cell, NSIndexPath *indexPath, NSString *model) {
+        DS_LanguageCell *cells = (DS_LanguageCell *)cell;
+        cells.selectedState = YES;
         cell.textLabel.text = model;
-    }];
-    __block NSDictionary *dict = _languageDict;
-    WEAKSELF;
-    [self tableViewDidClickBlock:^(UITableView *tableView,UITableViewCell *cell, NSIndexPath *indexPath, NSString *model) {
-        weakSelf.selectedLanguageType = dict[model];
-        if ([[DS_CurrentSystemTool readCurrentAppLanguage] isEqualToString:weakSelf.selectedLanguageType]) {
-            weakSelf.rightItemLabel.textColor = UIColorFromRGB(0x3f6847);
-        }else {
-            weakSelf.rightItemLabel.textColor = [UIColor greenColor];
-        }
     }];
     
     NSString *currentKey = [DS_CurrentSystemTool currentSetLanguageKey];
     NSInteger index = [self.dataSourceArray indexOfObject:currentKey];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *model = self.dataSourceArray[indexPath.row];
+    self.selectedLanguageType = _languageDict[model];
+    if ([[DS_CurrentSystemTool readCurrentAppLanguage] isEqualToString:self.selectedLanguageType]) {
+        self.rightItemLabel.textColor = UIColorFromRGB(0x3f6847);
+    }else {
+        self.rightItemLabel.textColor = [UIColor greenColor];
+    }
 }
 
 - (void)obtainData
