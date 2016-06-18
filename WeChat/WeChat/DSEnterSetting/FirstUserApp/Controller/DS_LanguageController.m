@@ -97,6 +97,13 @@
     if ([_selectedLanguageType isEqualToString:[DS_CurrentSystemTool readCurrentAppLanguage]]) {
         return;
     }
+    //Hans en
+    if ([_selectedLanguageType containsString:@"Hans"] || [_selectedLanguageType containsString:@"en"]) {
+    }else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"应用内切换语言暂时只翻译英文和简体中文,如果想实现，请自己翻译Localizable目录下对应的语言" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     [DS_CurrentSystemTool saveOldLanguage];
     [DS_CurrentSystemTool saveSetLanguage:_selectedLanguageType];
