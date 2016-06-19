@@ -54,8 +54,8 @@
     [self.itemArray mas_updateConstraints:^(MASConstraintMaker *make) {
         NSInteger line = i / 4;
         NSInteger row = i % 4;
-        make.size.mas_equalTo(CGSizeMake(KSizeWidth, 70));
-        make.left.mas_equalTo(weakSelf).offset(30+row *(KSizeWidth+30));
+        make.size.mas_equalTo(CGSizeMake(KSizeWidth + 30, 70));
+        make.left.mas_equalTo(weakSelf).offset(15+row *(KSizeWidth+30));
         make.top.mas_equalTo(weakSelf).offset(line*90);
         i++;
     }];
@@ -145,7 +145,14 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:14.];
+        //机型适配
+        if (UISCREENWIDTH > 375) {
+            _titleLabel.font = [UIFont systemFontOfSize:14.];
+        }else if(UISCREENWIDTH > 320){
+            _titleLabel.font = [UIFont systemFontOfSize:13.];
+        }else {
+            _titleLabel.font = [UIFont systemFontOfSize:12.];
+        }
         _titleLabel.textColor = [UIColor grayColor];
     }
     return _titleLabel;

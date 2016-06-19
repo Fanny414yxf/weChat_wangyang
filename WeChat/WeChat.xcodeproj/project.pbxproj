@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D302A6FD1D14F2B000866EB2 /* DS_MineSettingControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */; };
 		D302A7001D15056B00866EB2 /* DS_MineGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */; };
+		D302A7031D152E2200866EB2 /* DS_FindScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7021D152E2200866EB2 /* DS_FindScanController.m */; };
+		D302A7061D152F6D00866EB2 /* DS_FindScanTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */; };
 		D303A9161D0703D200C2CA3A /* DS_ChatBubblePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */; };
 		D303A9191D0708C400C2CA3A /* DS_ChatBubbleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9181D0708C400C2CA3A /* DS_ChatBubbleTextView.m */; };
 		D303A91C1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A91B1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m */; };
@@ -394,6 +396,10 @@
 		D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineSettingControllerManager.m; sourceTree = "<group>"; };
 		D302A6FE1D15056B00866EB2 /* DS_MineGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineGeneralController.h; sourceTree = "<group>"; };
 		D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineGeneralController.m; sourceTree = "<group>"; };
+		D302A7011D152E2200866EB2 /* DS_FindScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_FindScanController.h; sourceTree = "<group>"; };
+		D302A7021D152E2200866EB2 /* DS_FindScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_FindScanController.m; sourceTree = "<group>"; };
+		D302A7041D152F6D00866EB2 /* DS_FindScanTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_FindScanTypeView.h; sourceTree = "<group>"; };
+		D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_FindScanTypeView.m; sourceTree = "<group>"; };
 		D3035CFF1CE4C7E100689A25 /* DS_mainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_mainHeader.h; sourceTree = "<group>"; };
 		D303A9141D0703D200C2CA3A /* DS_ChatBubblePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ChatBubblePictureView.h; sourceTree = "<group>"; };
 		D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ChatBubblePictureView.m; sourceTree = "<group>"; };
@@ -2571,6 +2577,8 @@
 				D30DB5961CFB2F47008B1B5D /* DS_FriendCricleController.m */,
 				D310FF981CFDD590004E6087 /* DS_FriendCricleControllerManager.h */,
 				D310FF991CFDD590004E6087 /* DS_FriendCricleControllerManager.m */,
+				D302A7011D152E2200866EB2 /* DS_FindScanController.h */,
+				D302A7021D152E2200866EB2 /* DS_FindScanController.m */,
 			);
 			name = Controller;
 			path = ../DSMine/Controller;
@@ -2611,6 +2619,8 @@
 				D306607D1CFF0D0100ABF472 /* DS_FriendCricleFeedPicturesView.m */,
 				D3302C581D0412C2003A34A4 /* DS_FriendCriclePraiseAndCommentView.h */,
 				D3302C591D0412C2003A34A4 /* DS_FriendCriclePraiseAndCommentView.m */,
+				D302A7041D152F6D00866EB2 /* DS_FindScanTypeView.h */,
+				D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */,
 			);
 			name = View;
 			path = ../DSMine/View;
@@ -3117,8 +3127,10 @@
 				D377AA431BE8AD6D00196714 /* View+MASAdditions.m in Sources */,
 				D33BC7201CC7B76300D0DE02 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				D3302C5A1D0412C2003A34A4 /* DS_FriendCriclePraiseAndCommentView.m in Sources */,
+				D302A7061D152F6D00866EB2 /* DS_FindScanTypeView.m in Sources */,
 				D33BC6DC1CC7B76300D0DE02 /* XMPPCoreDataStorage.m in Sources */,
 				D3759FCA1D07FDA90034E501 /* YYImage.m in Sources */,
+				D302A7031D152E2200866EB2 /* DS_FindScanController.m in Sources */,
 				D30EBFBE1D00792800361F73 /* DS_FriendCricleRssView.m in Sources */,
 				D33BC6EE1CC7B76300D0DE02 /* XMPPLastActivity.m in Sources */,
 				D377A9E11BE8A55500196714 /* DSLaunchingController.m in Sources */,

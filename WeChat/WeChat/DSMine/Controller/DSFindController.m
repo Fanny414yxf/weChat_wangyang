@@ -11,6 +11,7 @@
 #import "DS_FindCell.h"
 #import "DS_FriendCricleController.h"
 #import "DS_FindCellModel.h"
+#import "DS_FindScanController.h"
 
 static NSString *identifier = @"DS_FindCell";
 @interface DSFindController ()
@@ -85,6 +86,12 @@ static NSString *identifier = @"DS_FindCell";
         DS_FriendCricleController *circleVc = [[DS_FriendCricleController alloc] init];
         [self.navigationController pushViewController:circleVc animated:YES];
     }
+    
+    if ([model.title isEqualToString:DS_CustomLocalizedString(@"scan", nil)]) {
+        DS_FindScanController *vc = [[DS_FindScanController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
