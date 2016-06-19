@@ -151,7 +151,7 @@
         }else if(UISCREENWIDTH > 320){
             _titleLabel.font = [UIFont systemFontOfSize:13.];
         }else {
-            _titleLabel.font = [UIFont systemFontOfSize:12.];
+            _titleLabel.font = [UIFont systemFontOfSize:10.];
         }
         _titleLabel.textColor = [UIColor grayColor];
     }

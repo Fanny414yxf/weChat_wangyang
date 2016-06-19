@@ -18,7 +18,7 @@ const CGFloat KFrameSizeHeight = 100.f;
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
