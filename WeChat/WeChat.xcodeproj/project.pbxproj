@@ -11,6 +11,8 @@
 		D302A7001D15056B00866EB2 /* DS_MineGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */; };
 		D302A7031D152E2200866EB2 /* DS_FindScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7021D152E2200866EB2 /* DS_FindScanController.m */; };
 		D302A7061D152F6D00866EB2 /* DS_FindScanTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */; };
+		D302A7081D16AFCA00866EB2 /* qrcode_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D302A7071D16AFCA00866EB2 /* qrcode_frame@2x.png */; };
+		D302A70A1D16B16600866EB2 /* qrcode_move_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D302A7091D16B16600866EB2 /* qrcode_move_line@2x.png */; };
 		D303A9161D0703D200C2CA3A /* DS_ChatBubblePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */; };
 		D303A9191D0708C400C2CA3A /* DS_ChatBubbleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9181D0708C400C2CA3A /* DS_ChatBubbleTextView.m */; };
 		D303A91C1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A91B1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m */; };
@@ -400,6 +402,8 @@
 		D302A7021D152E2200866EB2 /* DS_FindScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_FindScanController.m; sourceTree = "<group>"; };
 		D302A7041D152F6D00866EB2 /* DS_FindScanTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_FindScanTypeView.h; sourceTree = "<group>"; };
 		D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_FindScanTypeView.m; sourceTree = "<group>"; };
+		D302A7071D16AFCA00866EB2 /* qrcode_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_frame@2x.png"; sourceTree = "<group>"; };
+		D302A7091D16B16600866EB2 /* qrcode_move_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_move_line@2x.png"; sourceTree = "<group>"; };
 		D3035CFF1CE4C7E100689A25 /* DS_mainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_mainHeader.h; sourceTree = "<group>"; };
 		D303A9141D0703D200C2CA3A /* DS_ChatBubblePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ChatBubblePictureView.h; sourceTree = "<group>"; };
 		D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ChatBubblePictureView.m; sourceTree = "<group>"; };
@@ -1158,6 +1162,8 @@
 		D30DB5711CFB287C008B1B5D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D302A7091D16B16600866EB2 /* qrcode_move_line@2x.png */,
+				D302A7071D16AFCA00866EB2 /* qrcode_frame@2x.png */,
 				D3302C5E1D041B66003A34A4 /* ff_likes_comments_background@2x.png */,
 				D3302C541D040F26003A34A4 /* AlbumOperateMoreHL@2x.png */,
 				D3302C551D040F26003A34A4 /* AlbumOperateMoreHL@3x.png */,
@@ -2863,6 +2869,7 @@
 				D3E900BD1BE9EBE200937522 /* tabbar_mainframe@2x.png in Resources */,
 				D30DB5A11CFB3A27008B1B5D /* MoreMyAlbum@2x.png in Resources */,
 				D3401B291D0FAC0900126F4F /* keyBoardFunsList.plist in Resources */,
+				D302A7081D16AFCA00866EB2 /* qrcode_frame@2x.png in Resources */,
 				D3E900C01BE9EBE200937522 /* tabbar_mainframeHL@3x.png in Resources */,
 				D30DB5AD1CFB3A57008B1B5D /* MoreSetting@2x.png in Resources */,
 				D3401B611D0FD8C700126F4F /* sharemore_friendcard@3x.png in Resources */,
@@ -2899,6 +2906,7 @@
 				D30DB5551CF9EF84008B1B5D /* fts_green_btn_HL@2x.png in Resources */,
 				D3302C571D040F26003A34A4 /* AlbumOperateMoreHL@3x.png in Resources */,
 				D30DB58D1CFB2C91008B1B5D /* CreditCard_ShoppingBag@2x.png in Resources */,
+				D302A70A1D16B16600866EB2 /* qrcode_move_line@2x.png in Resources */,
 				D3401B711D0FD8C700126F4F /* sharemore_wallet@3x.png in Resources */,
 				D30DB58A1CFB2B60008B1B5D /* MoreGame@2x.png in Resources */,
 				D30DF1A61CEC9BC700A29B04 /* weChatBubble_Receiving_icon@2x.png in Resources */,

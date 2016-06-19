@@ -9,17 +9,25 @@
 #import "DS_FindScanController.h"
 #import "DS_FindScanTypeView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "NSTimer+ScheduleTimer.h"
 
-@interface DS_FindScanController ()<AVCaptureMetadataOutputObjectsDelegate>
+@interface DS_FindScanController ()<AVCaptureMetadataOutputObjectsDelegate> {
+    NSInteger _nums;
+    CGRect _originRect;
+}
 
 @property (nonatomic,strong)DS_FindScanTypeView *scanTypeView;
 //设备属性
-@property (strong,nonatomic)AVCaptureDevice *device;
-@property (strong,nonatomic)AVCaptureDeviceInput *input;
-@property (strong,nonatomic)AVCaptureMetadataOutput *output;
-@property (strong,nonatomic)AVCaptureSession *session;
-@property (strong,nonatomic)AVCaptureVideoPreviewLayer *preview;
-@property (strong,nonatomic)NSString *resultStr;
+@property (nonatomic,strong)AVCaptureDevice *device;
+@property (nonatomic,strong)AVCaptureDeviceInput *input;
+@property (nonatomic,strong)AVCaptureMetadataOutput *output;
+@property (nonatomic,strong)AVCaptureSession *session;
+@property (nonatomic,strong)AVCaptureVideoPreviewLayer *preview;
+@property (nonatomic,strong)NSString *resultStr;
+
+@property (nonatomic,strong)UIImageView *qrCodeImageView;
+@property (nonatomic,strong)UIImageView *lineImageView;
+@property (nonatomic,strong)NSTimer *timer;
 
 @end
 
@@ -29,8 +37,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = DS_CustomLocalizedString(@"QR Code", nil);
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     [self.view addSubview:self.scanTypeView];
+    [self.view addSubview:self.qrCodeImageView];
+    [self.view addSubview:self.lineImageView];
     [self initSweepView];
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
 }
 
 #pragma mark ------初始化扫描视图------
@@ -49,8 +67,6 @@
         [alert show];
         
     }
-    
-    
 }
 
 - (void)setupCamera
@@ -66,7 +82,7 @@
     _output = [[AVCaptureMetadataOutput alloc]init];
     [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     //限制扫描区域
-    CGSize size = self.view.bounds.size;
+    CGSize size = CGSizeMake(UISCREENWIDTH, UISCREENHEIGHT - 64 - KFrameSizeHeight);
     CGRect cropRect = self.view.bounds;
     CGFloat p1 = size.height/size.width;
     CGFloat p2 = 1920./1080.;  //使用了1080p的图像输出
@@ -105,6 +121,16 @@
     [_session startRunning];
 }
 
+- (void)lineAnmations
+{
+    _nums++;
+    CGFloat margin = _nums * 3;
+    self.lineImageView.frame = CGRectOffset(_originRect, 0,margin);
+    if (margin > self.qrCodeImageView.frame.size.height - 6) {
+        _nums = 0;
+    }
+}
+
 #pragma mark -----AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
@@ -116,10 +142,9 @@
     }
     
     [_session stopRunning];
-//    [self.timer invalidate];
+    [_timer invalidate];
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 //设置二维码图片阴影颜色
@@ -130,9 +155,7 @@
     imgView.layer.shadowRadius = 2;
     imgView.layer.shadowColor = [UIColor blackColor].CGColor;
     imgView.layer.shadowOpacity = 0.5;
-    
 }
-
 
 #pragma mark - getter
 - (DS_FindScanTypeView *)scanTypeView
@@ -141,5 +164,37 @@
         _scanTypeView = [[DS_FindScanTypeView alloc] init];
     }
     return _scanTypeView;
+}
+
+- (UIImageView *)qrCodeImageView
+{
+    if (!_qrCodeImageView) {
+        _qrCodeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qrcode_frame.png"]];
+        CGFloat w = 280;
+        CGFloat x = (UISCREENWIDTH - w)*0.5;
+        CGFloat y = 100;
+        CGFloat h = 280;
+        _qrCodeImageView.frame = CGRectMake(x, y, w, h);
+    }
+    return _qrCodeImageView;
+}
+
+- (UIImageView *)lineImageView
+{
+    if (!_lineImageView) {
+        _lineImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qrcode_move_line.png"]];
+        CGFloat w = 250;
+        CGFloat x = (self.qrCodeImageView.frame.size.width - w) * 0.5 + self.qrCodeImageView.frame.origin.x;
+        CGFloat y = self.qrCodeImageView.frame.origin.y;
+        CGFloat h = 6;
+        _lineImageView.frame = CGRectMake(x, y, w, h);
+        _originRect = _lineImageView.frame;
+        WEAKSELF;
+        _timer = [NSTimer scheduledTimerWithTimeInterval:.02 block:^{
+            STRONGSELF;
+            [strongSelf lineAnmations];
+        } repeats:YES];
+    }
+    return _lineImageView;
 }
 @end

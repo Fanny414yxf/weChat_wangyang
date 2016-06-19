@@ -8,6 +8,11 @@
 
 #import "DS_FindScanTypeView.h"
 
+const CGFloat KFrameSizeHeight = 100.f;
+@interface DS_FindScanTypeView ()
+
+@end
+
 @implementation DS_FindScanTypeView
 
 - (instancetype)init
@@ -21,8 +26,8 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     CGFloat x = 0;
-    CGFloat h = 100;
-    CGFloat y = UISCREENHEIGHT - h;
+    CGFloat h = KFrameSizeHeight;
+    CGFloat y = UISCREENHEIGHT - 64 - h;
     CGFloat w = UISCREENWIDTH;
     self.frame = CGRectMake(x, y, w, h);
 }

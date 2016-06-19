@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern const CGFloat KFrameSizeHeight;
+
 typedef NS_ENUM(NSInteger,DS_FindScanType) {
     DS_FindScanTypeScan,  //扫码
     DS_FindScanTypecover,  //封面
