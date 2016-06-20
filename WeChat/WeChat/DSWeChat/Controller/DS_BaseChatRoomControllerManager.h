@@ -17,7 +17,6 @@
  */
 + (void)openPhotoWithSuccess:(void(^)(NSArray *photoPictures))photos;
 
-
 /**
  * 拍照
  */

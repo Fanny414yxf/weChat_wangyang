@@ -13,6 +13,10 @@
 		D302A7061D152F6D00866EB2 /* DS_FindScanTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */; };
 		D302A7081D16AFCA00866EB2 /* qrcode_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D302A7071D16AFCA00866EB2 /* qrcode_frame@2x.png */; };
 		D302A70A1D16B16600866EB2 /* qrcode_move_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D302A7091D16B16600866EB2 /* qrcode_move_line@2x.png */; };
+		D302A7111D1788EE00866EB2 /* DS_PhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7101D1788EE00866EB2 /* DS_PhotoAlbumViewController.m */; };
+		D302A7141D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7131D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m */; };
+		D302A7171D17BA8200866EB2 /* DS_PhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7161D17BA8200866EB2 /* DS_PhotoPickerGroup.m */; };
+		D302A71A1D17BA9E00866EB2 /* DS_PhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7191D17BA9E00866EB2 /* DS_PhotoAssets.m */; };
 		D303A9161D0703D200C2CA3A /* DS_ChatBubblePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */; };
 		D303A9191D0708C400C2CA3A /* DS_ChatBubbleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A9181D0708C400C2CA3A /* DS_ChatBubbleTextView.m */; };
 		D303A91C1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D303A91B1D07182D00C2CA3A /* DS_ChatBubbleBaseView.m */; };
@@ -404,6 +408,14 @@
 		D302A7051D152F6D00866EB2 /* DS_FindScanTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_FindScanTypeView.m; sourceTree = "<group>"; };
 		D302A7071D16AFCA00866EB2 /* qrcode_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_frame@2x.png"; sourceTree = "<group>"; };
 		D302A7091D16B16600866EB2 /* qrcode_move_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_move_line@2x.png"; sourceTree = "<group>"; };
+		D302A70F1D1788EE00866EB2 /* DS_PhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumViewController.h; sourceTree = "<group>"; };
+		D302A7101D1788EE00866EB2 /* DS_PhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumViewController.m; sourceTree = "<group>"; };
+		D302A7121D178D4E00866EB2 /* DS_PhotoAlbumDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumDataModel.h; sourceTree = "<group>"; };
+		D302A7131D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumDataModel.m; sourceTree = "<group>"; };
+		D302A7151D17BA8200866EB2 /* DS_PhotoPickerGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoPickerGroup.h; sourceTree = "<group>"; };
+		D302A7161D17BA8200866EB2 /* DS_PhotoPickerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoPickerGroup.m; sourceTree = "<group>"; };
+		D302A7181D17BA9E00866EB2 /* DS_PhotoAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAssets.h; sourceTree = "<group>"; };
+		D302A7191D17BA9E00866EB2 /* DS_PhotoAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAssets.m; sourceTree = "<group>"; };
 		D3035CFF1CE4C7E100689A25 /* DS_mainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_mainHeader.h; sourceTree = "<group>"; };
 		D303A9141D0703D200C2CA3A /* DS_ChatBubblePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_ChatBubblePictureView.h; sourceTree = "<group>"; };
 		D303A9151D0703D200C2CA3A /* DS_ChatBubblePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_ChatBubblePictureView.m; sourceTree = "<group>"; };
@@ -1100,6 +1112,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D302A70C1D17884100866EB2 /* DS_ChoosePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				D302A70E1D17888B00866EB2 /* Model */,
+				D302A70D1D17888000866EB2 /* Controller */,
+			);
+			path = DS_ChoosePhoto;
+			sourceTree = "<group>";
+		};
+		D302A70D1D17888000866EB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D302A70F1D1788EE00866EB2 /* DS_PhotoAlbumViewController.h */,
+				D302A7101D1788EE00866EB2 /* DS_PhotoAlbumViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D302A70E1D17888B00866EB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D302A7121D178D4E00866EB2 /* DS_PhotoAlbumDataModel.h */,
+				D302A7131D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m */,
+				D302A7151D17BA8200866EB2 /* DS_PhotoPickerGroup.h */,
+				D302A7161D17BA8200866EB2 /* DS_PhotoPickerGroup.m */,
+				D302A7181D17BA9E00866EB2 /* DS_PhotoAssets.h */,
+				D302A7191D17BA9E00866EB2 /* DS_PhotoAssets.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D304020A1CE6F90800B1D9B4 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -2264,6 +2307,7 @@
 		D377A9EC1BE8AAC800196714 /* DSTools */ = {
 			isa = PBXGroup;
 			children = (
+				D302A70C1D17884100866EB2 /* DS_ChoosePhoto */,
 				D389D5B51D129B240022EBB0 /* Others */,
 				D3235F8B1CE80D7300D235CF /* DS_BaseTool */,
 				D304021B1CE70ACE00B1D9B4 /* DS_BaseClass */,
@@ -3024,6 +3068,7 @@
 				D33BC71A1CC7B76300D0DE02 /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				D304B4271CEB44A700FE1F03 /* DS_BaseChatRoomCell.m in Sources */,
 				D33BC6C91CC7B76300D0DE02 /* XMPPParser.m in Sources */,
+				D302A7111D1788EE00866EB2 /* DS_PhotoAlbumViewController.m in Sources */,
 				D30402261CE7101A00B1D9B4 /* DS_LanguageController.m in Sources */,
 				D33BC6D61CC7B76300D0DE02 /* DDLog.m in Sources */,
 				D33BC6D21CC7B76300D0DE02 /* GCDAsyncSocket.m in Sources */,
@@ -3035,6 +3080,7 @@
 				D3759FCC1D07FDA90034E501 /* YYSpriteSheetImage.m in Sources */,
 				D3ED16AF1BEB57DA00F74219 /* DSAddressBookController.m in Sources */,
 				D3401B431D0FB37400126F4F /* MJFoundation.m in Sources */,
+				D302A71A1D17BA9E00866EB2 /* DS_PhotoAssets.m in Sources */,
 				D33BC7331CC7B76300D0DE02 /* NSXMLElement+XEP_0335.m in Sources */,
 				D33BC7001CC7B76300D0DE02 /* XMPPvCardCoreDataStorage.m in Sources */,
 				D33BC6F01CC7B76300D0DE02 /* XMPPRoom.xcdatamodeld in Sources */,
@@ -3053,6 +3099,7 @@
 				D3FF71DB1CE45F96004B5510 /* DSTabBarItem.m in Sources */,
 				D3401B4B1D0FB37400126F4F /* NSString+MJExtension.m in Sources */,
 				D33BC6BF1CC7B76300D0DE02 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
+				D302A7141D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m in Sources */,
 				D33BC6C31CC7B76300D0DE02 /* NSXMLElement+XMPP.m in Sources */,
 				D304B4241CEB42FA00FE1F03 /* DS_BaseChatRoomController.m in Sources */,
 				D33BC7041CC7B76300D0DE02 /* XMPPvCardTempAdr.m in Sources */,
@@ -3208,6 +3255,7 @@
 				D30EBFC11D008D8E00361F73 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				D33BC6EF1CC7B76300D0DE02 /* XMPPPrivacy.m in Sources */,
 				D3401B471D0FB37400126F4F /* NSObject+MJClass.m in Sources */,
+				D302A7171D17BA8200866EB2 /* DS_PhotoPickerGroup.m in Sources */,
 				D33BC6C01CC7B76300D0DE02 /* XMPPXOAuth2Google.m in Sources */,
 				D33BC6FF1CC7B76300D0DE02 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				D30DB5BC1CFBED44008B1B5D /* DS_FriendCricleHeaderView.m in Sources */,

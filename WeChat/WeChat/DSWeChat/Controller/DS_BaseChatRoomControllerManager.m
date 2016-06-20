@@ -9,6 +9,7 @@
 #import "DS_BaseChatRoomControllerManager.h"
 #import "DS_ControllerTool.h"
 #import "DS_BaseChatRoomController.h"
+#import "DS_PhotoAlbumViewController.h"
 
 @interface DS_BaseChatRoomControllerManager ()
 
@@ -27,6 +28,13 @@
 
 + (void)openPhotoWithSuccess:(void (^)(NSArray *))photos
 {
+    UIViewController *vc = [DS_ControllerTool topViewController];
+    DS_PhotoAlbumViewController *photoAlbumVC = [[DS_PhotoAlbumViewController alloc] init];
+    [vc presentViewController:photoAlbumVC animated:YES completion:nil];
+}
+
++ (void)takePictureWithSuccess:(void (^)(UIImage *))picture
+{
     DS_BaseChatRoomController *vc = (DS_BaseChatRoomController *)[DS_ControllerTool topViewController];
     UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
@@ -37,13 +45,5 @@
     pickerImage.delegate = vc;
     pickerImage.allowsEditing = NO;
     [vc presentViewController:pickerImage animated:YES completion:nil];
-//    if (photos) {
-//        photos(@[@"1",@"2"]);
-//    }
-}
-
-+ (void)takePictureWithSuccess:(void (^)(UIImage *))picture
-{
-    
 }
 @end
