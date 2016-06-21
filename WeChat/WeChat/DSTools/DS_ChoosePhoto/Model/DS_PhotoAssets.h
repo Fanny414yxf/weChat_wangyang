@@ -19,6 +19,8 @@
 //原图
 - (UIImage *)originImage;
 
+@property (nonatomic,assign,getter=isSelected)BOOL selected;
+
 //是否是视频
 @property (assign,nonatomic) BOOL isVideoType;
 @end

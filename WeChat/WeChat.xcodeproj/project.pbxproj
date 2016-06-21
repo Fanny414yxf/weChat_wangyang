@@ -43,6 +43,8 @@
 		D30C1E7A1CF2978600EFC7EE /* contacts_add_scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30C1E781CF2978600EFC7EE /* contacts_add_scan@3x.png */; };
 		D30C1E7F1CF2FB4800EFC7EE /* DS_AddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30C1E7E1CF2FB4800EFC7EE /* DS_AddressBookCell.m */; };
 		D30D127A1D191D5C000E7D32 /* DS_PhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */; };
+		D30D5DAA1D198B2E00B384CE /* DS_ChoosePhoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30D5DA81D198B2E00B384CE /* DS_ChoosePhoto@2x.png */; };
+		D30D5DAD1D198CF200B384CE /* DS_ChoosePhotoHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30D5DAC1D198CF100B384CE /* DS_ChoosePhotoHL@2x.png */; };
 		D30DB5551CF9EF84008B1B5D /* fts_green_btn_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5531CF9EF84008B1B5D /* fts_green_btn_HL@2x.png */; };
 		D30DB5561CF9EF84008B1B5D /* fts_green_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5541CF9EF84008B1B5D /* fts_green_btn@2x.png */; };
 		D30DB5581CF9F136008B1B5D /* fts_gray_btn_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5571CF9F136008B1B5D /* fts_gray_btn_HL@2x.png */; };
@@ -464,6 +466,8 @@
 		D30C1E7E1CF2FB4800EFC7EE /* DS_AddressBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_AddressBookCell.m; sourceTree = "<group>"; };
 		D30D12781D191D5C000E7D32 /* DS_PhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumCell.h; sourceTree = "<group>"; };
 		D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumCell.m; sourceTree = "<group>"; };
+		D30D5DA81D198B2E00B384CE /* DS_ChoosePhoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DS_ChoosePhoto@2x.png"; sourceTree = "<group>"; };
+		D30D5DAC1D198CF100B384CE /* DS_ChoosePhotoHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DS_ChoosePhotoHL@2x.png"; sourceTree = "<group>"; };
 		D30DB5531CF9EF84008B1B5D /* fts_green_btn_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_green_btn_HL@2x.png"; sourceTree = "<group>"; };
 		D30DB5541CF9EF84008B1B5D /* fts_green_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_green_btn@2x.png"; sourceTree = "<group>"; };
 		D30DB5571CF9F136008B1B5D /* fts_gray_btn_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_gray_btn_HL@2x.png"; sourceTree = "<group>"; };
@@ -1118,6 +1122,7 @@
 		D302A70C1D17884100866EB2 /* DS_ChoosePhoto */ = {
 			isa = PBXGroup;
 			children = (
+				D30D5DA31D19895700B384CE /* Resources */,
 				D30D12771D191D2A000E7D32 /* View */,
 				D302A70E1D17888B00866EB2 /* Model */,
 				D302A70D1D17888000866EB2 /* Controller */,
@@ -1213,6 +1218,15 @@
 				D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D30D5DA31D19895700B384CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D30D5DAC1D198CF100B384CE /* DS_ChoosePhotoHL@2x.png */,
+				D30D5DA81D198B2E00B384CE /* DS_ChoosePhoto@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D30DB5711CFB287C008B1B5D /* Resources */ = {
@@ -2945,6 +2959,7 @@
 				D33F8B8D1D0AC0540085C01F /* ToolViewInputVoice@3x.png in Resources */,
 				D30DB59E1CFB3A15008B1B5D /* MoreExpressionShops@3x.png in Resources */,
 				D3302C561D040F26003A34A4 /* AlbumOperateMoreHL@2x.png in Resources */,
+				D30D5DAD1D198CF200B384CE /* DS_ChoosePhotoHL@2x.png in Resources */,
 				D30DB5931CFB2E9C008B1B5D /* ff_IconShowAlbum@2x.png in Resources */,
 				D30C1E7A1CF2978600EFC7EE /* contacts_add_scan@3x.png in Resources */,
 				D30DB5A21CFB3A27008B1B5D /* MoreMyAlbum@3x.png in Resources */,
@@ -2954,6 +2969,7 @@
 				D304B42F1CEB5F9100FE1F03 /* user2.png in Resources */,
 				D30DB5AA1CFB3A57008B1B5D /* MoreMyBankCard@3x.png in Resources */,
 				D3401B671D0FD8C700126F4F /* sharemore_pic@3x.png in Resources */,
+				D30D5DAA1D198B2E00B384CE /* DS_ChoosePhoto@2x.png in Resources */,
 				D3401B601D0FD8C700126F4F /* sharemore_friendcard@2x.png in Resources */,
 				D389D9C21D129B800022EBB0 /* Assets.xcassets in Resources */,
 				D3DC31021CF93517006288C0 /* add_friend_icon_offical@2x.png in Resources */,

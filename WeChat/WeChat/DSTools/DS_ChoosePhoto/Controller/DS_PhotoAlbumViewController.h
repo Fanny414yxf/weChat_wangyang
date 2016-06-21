@@ -9,4 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface DS_PhotoAlbumViewController : UIViewController
+
+@end
+
+@interface DS_PhotoButton : UIButton
+
 @end

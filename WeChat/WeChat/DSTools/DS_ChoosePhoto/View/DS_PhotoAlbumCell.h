@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DS_PhotoAssets;
 
 @interface DS_PhotoAlbumCell : UICollectionViewCell
-
-@property (nonatomic,strong)UIImageView *imageView;
+@property (nonatomic,strong)DS_PhotoAssets *assertModel;
 @end
