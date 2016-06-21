@@ -10,6 +10,7 @@
 #import "DS_PhotoAlbumDataModel.h"
 #import "DS_PhotoPickerGroup.h"
 #import "DS_PhotoAssets.h"
+#import "DS_PhotoAlbumCell.h"
 
 static NSString *identifier = @"DS_PhotoAlbumCell";
 static NSString *identifierSupplementaryView = @"UICollectionReusableView";
@@ -50,23 +51,30 @@ static NSString *identifierSupplementaryView = @"UICollectionReusableView";
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;//self.dataSourcesArray.count;
+    return self.dataSourcesArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    DS_PhotoAlbumCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    DS_PhotoAssets *photoAssets = self.dataSourcesArray[indexPath.row];
+    cell.imageView.image = photoAssets.thumbImage;
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *view = nil;
-    if ([kind isEqualToString:@""]) {
-        view = [collectionView dequeueReusableSupplementaryViewOfKind:@"" withReuseIdentifier:identifierSupplementaryView forIndexPath:indexPath];
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifierSupplementaryView forIndexPath:indexPath];
+        view.frame = CGRectMake(0, 0, 375, 64);
     }
     return view;
+}
+
+-(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(375, 64);
 }
 
 #pragma mark - pravite funs
@@ -141,9 +149,9 @@ static NSString *identifierSupplementaryView = @"UICollectionReusableView";
         _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){0,0,UISCREENWIDTH,UISCREENHEIGHT - 64 - 50} collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:@"" withReuseIdentifier:identifierSupplementaryView];
-        
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        [_collectionView registerClass:[DS_PhotoAlbumCell class] forCellWithReuseIdentifier:identifier];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifierSupplementaryView];
     }
     return _collectionView;
 }

@@ -42,6 +42,7 @@
 		D30C1E791CF2978600EFC7EE /* contacts_add_scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30C1E771CF2978600EFC7EE /* contacts_add_scan@2x.png */; };
 		D30C1E7A1CF2978600EFC7EE /* contacts_add_scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30C1E781CF2978600EFC7EE /* contacts_add_scan@3x.png */; };
 		D30C1E7F1CF2FB4800EFC7EE /* DS_AddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30C1E7E1CF2FB4800EFC7EE /* DS_AddressBookCell.m */; };
+		D30D127A1D191D5C000E7D32 /* DS_PhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */; };
 		D30DB5551CF9EF84008B1B5D /* fts_green_btn_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5531CF9EF84008B1B5D /* fts_green_btn_HL@2x.png */; };
 		D30DB5561CF9EF84008B1B5D /* fts_green_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5541CF9EF84008B1B5D /* fts_green_btn@2x.png */; };
 		D30DB5581CF9F136008B1B5D /* fts_gray_btn_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30DB5571CF9F136008B1B5D /* fts_gray_btn_HL@2x.png */; };
@@ -461,6 +462,8 @@
 		D30C1E781CF2978600EFC7EE /* contacts_add_scan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_add_scan@3x.png"; sourceTree = "<group>"; };
 		D30C1E7D1CF2FB4800EFC7EE /* DS_AddressBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_AddressBookCell.h; sourceTree = "<group>"; };
 		D30C1E7E1CF2FB4800EFC7EE /* DS_AddressBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_AddressBookCell.m; sourceTree = "<group>"; };
+		D30D12781D191D5C000E7D32 /* DS_PhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumCell.h; sourceTree = "<group>"; };
+		D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumCell.m; sourceTree = "<group>"; };
 		D30DB5531CF9EF84008B1B5D /* fts_green_btn_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_green_btn_HL@2x.png"; sourceTree = "<group>"; };
 		D30DB5541CF9EF84008B1B5D /* fts_green_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_green_btn@2x.png"; sourceTree = "<group>"; };
 		D30DB5571CF9F136008B1B5D /* fts_gray_btn_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fts_gray_btn_HL@2x.png"; sourceTree = "<group>"; };
@@ -1115,6 +1118,7 @@
 		D302A70C1D17884100866EB2 /* DS_ChoosePhoto */ = {
 			isa = PBXGroup;
 			children = (
+				D30D12771D191D2A000E7D32 /* View */,
 				D302A70E1D17888B00866EB2 /* Model */,
 				D302A70D1D17888000866EB2 /* Controller */,
 			);
@@ -1200,6 +1204,15 @@
 				D3048CDD1CC8797000ABBC32 /* DS_xmppJoin.m */,
 			);
 			path = xmppJoin;
+			sourceTree = "<group>";
+		};
+		D30D12771D191D2A000E7D32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D30D12781D191D5C000E7D32 /* DS_PhotoAlbumCell.h */,
+				D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D30DB5711CFB287C008B1B5D /* Resources */ = {
@@ -3138,6 +3151,7 @@
 				D33BC6C51CC7B76300D0DE02 /* XMPPIQ.m in Sources */,
 				D33BC7321CC7B76300D0DE02 /* XMPPMessage+XEP_0333.m in Sources */,
 				D33BC7231CC7B76300D0DE02 /* XMPPMessage+XEP_0172.m in Sources */,
+				D30D127A1D191D5C000E7D32 /* DS_PhotoAlbumCell.m in Sources */,
 				D33BC6E41CC7B76300D0DE02 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				D33BC6FA1CC7B76300D0DE02 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				D3E900731BE9AB0800937522 /* DSFirstUseAppController.m in Sources */,
