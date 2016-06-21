@@ -8,10 +8,17 @@
 
 #import "DS_PhotoAlbumViewController.h"
 #import "DS_PhotoAlbumDataModel.h"
+#import "DS_PhotoPickerGroup.h"
+#import "DS_PhotoAssets.h"
 
-@interface DS_PhotoAlbumViewController ()
+static NSString *identifier = @"DS_PhotoAlbumCell";
+static NSString *identifierSupplementaryView = @"UICollectionReusableView";
+@interface DS_PhotoAlbumViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong)UINavigationBar *navigationBar;
 @property (nonatomic,strong)UILabel *rightItemLabel;
+@property (nonatomic,strong)DS_PhotoPickerGroup *pickerGroup;
+@property (nonatomic,strong)NSMutableArray *dataSourcesArray;
+@property (nonatomic,strong)UICollectionView *collectionView;
 @end
 
 @implementation DS_PhotoAlbumViewController
@@ -19,9 +26,15 @@
 #pragma mark - life cricle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationBar.alpha = 0.300;
+    self.navigationBar.translucent = YES;
+    [self.view addSubview:self.collectionView];
     [self.view addSubview:self.navigationBar];
-    [self getAlbumData];
+    [self getAlbumGroupModel];
     [self setNavigationBarItem];
 }
 
@@ -34,15 +47,60 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - 获取相册数据
-- (void)getAlbumData
+#pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    [[DS_PhotoAlbumDataModel shareInstance] getGroupPicturesWithSuccess:^(id org) {
-        
-    }];
+    return 100;//self.dataSourcesArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *view = nil;
+    if ([kind isEqualToString:@""]) {
+        view = [collectionView dequeueReusableSupplementaryViewOfKind:@"" withReuseIdentifier:identifierSupplementaryView forIndexPath:indexPath];
+    }
+    return view;
 }
 
 #pragma mark - pravite funs
+#pragma mark - 获取相册数据
+- (void)getAlbumGroupModel
+{
+    WEAKSELF;
+    [[DS_PhotoAlbumDataModel shareInstance] getAllGroupWithPhotos:^(id org) {
+        NSLog(@"%@",org);
+        for (DS_PhotoPickerGroup *group in org) {
+            if ([group.groupName isEqualToString:@"相机胶卷"]||[group.groupName isEqualToString:@"Camera Roll"]) {
+                weakSelf.pickerGroup = group;
+                [weakSelf getAlbumPhotoData];
+                return ;
+            }
+        }
+    }];
+}
+
+- (void)getAlbumPhotoData
+{
+    if (!self.pickerGroup) {
+        return;
+    }
+    WEAKSELF;
+    [[DS_PhotoAlbumDataModel shareInstance] getGroupPicturesWithGroup:self.pickerGroup success:^(NSArray *assets) {
+        [assets enumerateObjectsUsingBlock:^(ALAsset *asset, NSUInteger idx, BOOL *stop) {
+            DS_PhotoAssets *photoAssets = [[DS_PhotoAssets alloc] init];
+            photoAssets.asset = asset;
+            [weakSelf.dataSourcesArray addObject:photoAssets];
+        }];
+    }];
+}
+
 - (void)setNavigationBarItem
 {
     UILabel *rightlabel = [[UILabel alloc] init];
@@ -72,6 +130,24 @@
 }
 
 #pragma mark - getter
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        CGFloat width = (UISCREENWIDTH - 15 ) / 4.;
+        layout.itemSize = CGSizeMake(width, width);
+        layout.minimumLineSpacing = 3;
+        layout.minimumInteritemSpacing = 3;
+        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){0,0,UISCREENWIDTH,UISCREENHEIGHT - 64 - 50} collectionViewLayout:layout];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:@"" withReuseIdentifier:identifierSupplementaryView];
+        
+    }
+    return _collectionView;
+}
+
 - (UINavigationBar *)navigationBar
 {
     if (!_navigationBar) {
@@ -79,5 +155,13 @@
         _navigationBar.frame = CGRectMake(0, 0, UISCREENWIDTH, 64);
     }
     return _navigationBar;
+}
+
+- (NSMutableArray *)dataSourcesArray
+{
+    if (!_dataSourcesArray) {
+        _dataSourcesArray = [NSMutableArray array];
+    }
+    return _dataSourcesArray;
 }
 @end

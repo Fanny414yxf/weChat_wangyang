@@ -3511,7 +3511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = WeChatTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeChat/Others/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.WeChat.WeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3523,7 +3523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = WeChatTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeChat/Others/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.WeChat.WeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
