@@ -105,7 +105,6 @@
 		D31C349A1D13D05D00F96980 /* DS_MineSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31C34991D13D05D00F96980 /* DS_MineSettingController.m */; };
 		D3235F7D1CE7677300D235CF /* DSLocalizable.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3235F7C1CE7677300D235CF /* DSLocalizable.plist */; };
 		D3235F811CE77C6800D235CF /* NSTimer+ScheduleTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235F801CE77C6800D235CF /* NSTimer+ScheduleTimer.m */; };
-		D3235F8A1CE7807300D235CF /* UIViewController+DSNaviBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235F891CE7807300D235CF /* UIViewController+DSNaviBarItem.m */; };
 		D3235F8E1CE80DF300D235CF /* DS_CurrentSystemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235F8D1CE80DF300D235CF /* DS_CurrentSystemTool.m */; };
 		D3235FE81CE83B8F00D235CF /* DS_WeChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3235FE71CE83B8F00D235CF /* DS_WeChatViewCell.m */; };
 		D3302C561D040F26003A34A4 /* AlbumOperateMoreHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3302C541D040F26003A34A4 /* AlbumOperateMoreHL@2x.png */; };
@@ -371,6 +370,9 @@
 		D3F550981CEF088500AC648C /* DS_SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F550971CEF088500AC648C /* DS_SearchBarView.m */; };
 		D3F5509C1CEF154000AC648C /* VoiceSearchStartBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F5509B1CEF154000AC648C /* VoiceSearchStartBtn@2x.png */; };
 		D3F5509E1CEF154700AC648C /* VoiceSearchStartBtnHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F5509D1CEF154700AC648C /* VoiceSearchStartBtnHL@2x.png */; };
+		D3FA69A01D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA699F1D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.m */; };
+		D3FA69A31D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA69A21D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.m */; };
+		D3FA69A61D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FA69A51D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.m */; };
 		D3FCC3B21D102DCB0047BABC /* DS_KeyBoardBaseFunsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FCC3B11D102DCB0047BABC /* DS_KeyBoardBaseFunsView.m */; };
 		D3FCC3B61D105A2B0047BABC /* DS_BaseChatRoomControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FCC3B51D105A2B0047BABC /* DS_BaseChatRoomControllerManager.m */; };
 		D3FCC3B91D105E5F0047BABC /* DS_ControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FCC3B81D105E5F0047BABC /* DS_ControllerTool.m */; };
@@ -551,8 +553,6 @@
 		D3235F7C1CE7677300D235CF /* DSLocalizable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSLocalizable.plist; sourceTree = "<group>"; };
 		D3235F7F1CE77C6800D235CF /* NSTimer+ScheduleTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+ScheduleTimer.h"; sourceTree = "<group>"; };
 		D3235F801CE77C6800D235CF /* NSTimer+ScheduleTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+ScheduleTimer.m"; sourceTree = "<group>"; };
-		D3235F881CE7807300D235CF /* UIViewController+DSNaviBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSNaviBarItem.h"; sourceTree = "<group>"; };
-		D3235F891CE7807300D235CF /* UIViewController+DSNaviBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSNaviBarItem.m"; sourceTree = "<group>"; };
 		D3235F8C1CE80DF300D235CF /* DS_CurrentSystemTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_CurrentSystemTool.h; sourceTree = "<group>"; };
 		D3235F8D1CE80DF300D235CF /* DS_CurrentSystemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_CurrentSystemTool.m; sourceTree = "<group>"; };
 		D3235F951CE8196B00D235CF /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -1068,6 +1068,12 @@
 		D3F5509A1CEF0BB100AC648C /* DS_APPColorTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_APPColorTool.h; sourceTree = "<group>"; };
 		D3F5509B1CEF154000AC648C /* VoiceSearchStartBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoiceSearchStartBtn@2x.png"; sourceTree = "<group>"; };
 		D3F5509D1CEF154700AC648C /* VoiceSearchStartBtnHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoiceSearchStartBtnHL@2x.png"; sourceTree = "<group>"; };
+		D3FA699E1D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumSignPhotoController.h; sourceTree = "<group>"; };
+		D3FA699F1D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumSignPhotoController.m; sourceTree = "<group>"; };
+		D3FA69A11D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumGroupViewController.h; sourceTree = "<group>"; };
+		D3FA69A21D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumGroupViewController.m; sourceTree = "<group>"; };
+		D3FA69A41D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_PhotoAlbumGroupCell.h; sourceTree = "<group>"; };
+		D3FA69A51D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_PhotoAlbumGroupCell.m; sourceTree = "<group>"; };
 		D3FCC3B01D102DCB0047BABC /* DS_KeyBoardBaseFunsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_KeyBoardBaseFunsView.h; sourceTree = "<group>"; };
 		D3FCC3B11D102DCB0047BABC /* DS_KeyBoardBaseFunsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_KeyBoardBaseFunsView.m; sourceTree = "<group>"; };
 		D3FCC3B31D1049A80047BABC /* DS_KeyboardHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DS_KeyboardHeader.h; sourceTree = "<group>"; };
@@ -1133,8 +1139,12 @@
 		D302A70D1D17888000866EB2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D3FA69A11D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.h */,
+				D3FA69A21D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.m */,
 				D302A70F1D1788EE00866EB2 /* DS_PhotoAlbumViewController.h */,
 				D302A7101D1788EE00866EB2 /* DS_PhotoAlbumViewController.m */,
+				D3FA699E1D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.h */,
+				D3FA699F1D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1216,6 +1226,8 @@
 			children = (
 				D30D12781D191D5C000E7D32 /* DS_PhotoAlbumCell.h */,
 				D30D12791D191D5C000E7D32 /* DS_PhotoAlbumCell.m */,
+				D3FA69A41D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.h */,
+				D3FA69A51D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2536,8 +2548,6 @@
 			children = (
 				D3FF71E31CE483FC004B5510 /* UIViewController+DSPushViewController.h */,
 				D3FF71E41CE483FC004B5510 /* UIViewController+DSPushViewController.m */,
-				D3235F881CE7807300D235CF /* UIViewController+DSNaviBarItem.h */,
-				D3235F891CE7807300D235CF /* UIViewController+DSNaviBarItem.m */,
 				D30C1E561CF1509800EFC7EE /* UINavigationItem+DSNaviBarItem.h */,
 				D30C1E571CF1509800EFC7EE /* UINavigationItem+DSNaviBarItem.m */,
 				D3235F7F1CE77C6800D235CF /* NSTimer+ScheduleTimer.h */,
@@ -3083,6 +3093,7 @@
 				D33BC7301CC7B76300D0DE02 /* NSXMLElement+XEP_0297.m in Sources */,
 				D310FF961CFDD0B3004E6087 /* DS_FriendCricleModel.m in Sources */,
 				D30402231CE70C0900B1D9B4 /* DS_BaseViewController.m in Sources */,
+				D3FA69A61D1C330D00B55CD5 /* DS_PhotoAlbumGroupCell.m in Sources */,
 				D33BC6F81CC7B76300D0DE02 /* XMPPRoomMemoryStorage.m in Sources */,
 				D33BC6F91CC7B76300D0DE02 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				D3FCC3B61D105A2B0047BABC /* DS_BaseChatRoomControllerManager.m in Sources */,
@@ -3217,6 +3228,7 @@
 				D3759FCA1D07FDA90034E501 /* YYImage.m in Sources */,
 				D302A7031D152E2200866EB2 /* DS_FindScanController.m in Sources */,
 				D30EBFBE1D00792800361F73 /* DS_FriendCricleRssView.m in Sources */,
+				D3FA69A01D1C119000B55CD5 /* DS_PhotoAlbumSignPhotoController.m in Sources */,
 				D33BC6EE1CC7B76300D0DE02 /* XMPPLastActivity.m in Sources */,
 				D377A9E11BE8A55500196714 /* DSLaunchingController.m in Sources */,
 				D3FF71E51CE483FC004B5510 /* UIViewController+DSPushViewController.m in Sources */,
@@ -3287,6 +3299,7 @@
 				D3401B471D0FB37400126F4F /* NSObject+MJClass.m in Sources */,
 				D302A7171D17BA8200866EB2 /* DS_PhotoPickerGroup.m in Sources */,
 				D33BC6C01CC7B76300D0DE02 /* XMPPXOAuth2Google.m in Sources */,
+				D3FA69A31D1C173A00B55CD5 /* DS_PhotoAlbumGroupViewController.m in Sources */,
 				D33BC6FF1CC7B76300D0DE02 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				D30DB5BC1CFBED44008B1B5D /* DS_FriendCricleHeaderView.m in Sources */,
 				D3401B461D0FB37400126F4F /* MJPropertyType.m in Sources */,
@@ -3310,7 +3323,6 @@
 				D3DC310C1CF943DC006288C0 /* DS_AddressContactDetainCellModel.m in Sources */,
 				D33BC72B1CC7B76300D0DE02 /* XMPPTime.m in Sources */,
 				D33BC7071CC7B76300D0DE02 /* XMPPvCardTempEmail.m in Sources */,
-				D3235F8A1CE7807300D235CF /* UIViewController+DSNaviBarItem.m in Sources */,
 				D33BC6E81CC7B76300D0DE02 /* XMPPRoster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

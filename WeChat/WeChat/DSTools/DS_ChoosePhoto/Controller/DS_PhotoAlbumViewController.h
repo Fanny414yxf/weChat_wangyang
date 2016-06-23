@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DS_PhotoPickerGroup;
 
 @interface DS_PhotoAlbumViewController : UIViewController
+
+@property (nonatomic,strong)DS_PhotoPickerGroup *pickerGroup;
 
 @end
 

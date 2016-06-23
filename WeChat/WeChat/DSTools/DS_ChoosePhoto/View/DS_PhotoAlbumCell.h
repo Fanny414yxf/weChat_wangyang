@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DS_PhotoAssets;
+@class DS_PhotoAssets,DS_PhotoAlbumCell;
+
+@protocol DS_PhotoAlbumCellDelegate <NSObject>
+@optional
+- (void)photoAlbumCellClicked:(DS_PhotoAlbumCell *)cell withIndexPathItem:(NSInteger)item;
+@end
 
 @interface DS_PhotoAlbumCell : UICollectionViewCell
 @property (nonatomic,strong)DS_PhotoAssets *assertModel;
+@property (nonatomic,assign)NSInteger index;
+@property (nonatomic,weak)id<DS_PhotoAlbumCellDelegate> delegate;
 @end

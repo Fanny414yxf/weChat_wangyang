@@ -14,17 +14,11 @@
 //组名
 @property (nonatomic , copy)NSString *groupName;
 
-//组真实名
-@property (nonatomic , copy)NSString *realGroupName;
-
 //缩略图
 @property (nonatomic , strong)UIImage *thumbImage;
 
 //组图片个数
 @property (nonatomic , assign)NSInteger assetsCount;
-
-//类型
-@property (nonatomic , copy)NSString *type;
 
 //组
 @property (nonatomic , strong)ALAssetsGroup *group;

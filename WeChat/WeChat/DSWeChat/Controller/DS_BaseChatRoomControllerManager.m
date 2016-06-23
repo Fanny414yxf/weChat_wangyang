@@ -9,7 +9,7 @@
 #import "DS_BaseChatRoomControllerManager.h"
 #import "DS_ControllerTool.h"
 #import "DS_BaseChatRoomController.h"
-#import "DS_PhotoAlbumViewController.h"
+#import "DS_PhotoAlbumGroupViewController.h"
 
 @interface DS_BaseChatRoomControllerManager ()
 
@@ -29,8 +29,10 @@
 + (void)openPhotoWithSuccess:(void (^)(NSArray *))photos
 {
     UIViewController *vc = [DS_ControllerTool topViewController];
-    DS_PhotoAlbumViewController *photoAlbumVC = [[DS_PhotoAlbumViewController alloc] init];
-    [vc presentViewController:photoAlbumVC animated:YES completion:nil];
+    DS_PhotoAlbumGroupViewController *groupViewController = [[DS_PhotoAlbumGroupViewController alloc] init];
+    groupViewController.firstFlag = YES;
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:groupViewController];
+    [vc presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)takePictureWithSuccess:(void (^)(UIImage *))picture
@@ -39,7 +41,6 @@
     UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         pickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        //pickerImage.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
     }
     pickerImage.delegate = vc;

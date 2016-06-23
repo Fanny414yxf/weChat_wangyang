@@ -41,6 +41,14 @@
     [super updateConstraints];
 }
 
+- (void)selectedClicked
+{
+    if ([self.delegate respondsToSelector:@selector(photoAlbumCellClicked:withIndexPathItem:)]) {
+        [self.delegate photoAlbumCellClicked:self withIndexPathItem:_index];
+    }
+}
+
+#pragma mark - setter and getter
 - (void)setAssertModel:(DS_PhotoAssets *)assertModel
 {
     _assertModel = assertModel;
@@ -65,6 +73,9 @@
     if (!_selectedImageView) {
         _selectedImageView = [[UIImageView alloc] init];
         _selectedImageView.image = [UIImage imageNamed:@"DS_ChoosePhoto.png"];
+        _selectedImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedClicked)];
+        [_selectedImageView addGestureRecognizer:tap];
     }
     return _selectedImageView;
 }

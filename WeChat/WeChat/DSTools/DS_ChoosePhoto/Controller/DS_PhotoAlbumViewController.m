@@ -12,6 +12,7 @@
 #import "DS_PhotoAssets.h"
 #import "DS_PhotoAlbumCell.h"
 #import "UILabel+DSAdaptContent.h"
+#import "DS_PhotoAlbumSignPhotoController.h"
 
 static NSString *identifier = @"DS_PhotoAlbumCell";
 static NSString *identifierSupplementaryView = @"UICollectionReusableView";
@@ -20,15 +21,11 @@ const CGFloat KBottomHeight = 50.f;
 //默认最多选择照片最大数
 const NSInteger KSelectedMaxNums = 9;
 
-@interface DS_PhotoAlbumViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
-    //记录sendButton真实宽度
+@interface DS_PhotoAlbumViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DS_PhotoAlbumCellDelegate> {
+    //记录sendButton真实宽度为了进行多语言适配
     CGRect _sendRealRect;
-    //记录当前选择照片数
-    NSInteger _selectedPictureNums;
 }
-@property (nonatomic,strong)UINavigationBar *navigationBar;
 @property (nonatomic,strong)UILabel *rightItemLabel;
-@property (nonatomic,strong)DS_PhotoPickerGroup *pickerGroup;
 @property (nonatomic,strong)NSMutableArray *dataSourcesArray;
 @property (nonatomic,strong)UICollectionView *collectionView;
 //预览
@@ -37,6 +34,8 @@ const NSInteger KSelectedMaxNums = 9;
 @property (nonatomic,strong)DS_PhotoButton *sendButton;
 //选择照片数
 @property (nonatomic,strong)UILabel *selectedPictureLabel;
+
+@property (nonatomic,strong)NSMutableArray *selectedDataArray;
 @end
 
 @implementation DS_PhotoAlbumViewController
@@ -48,14 +47,13 @@ const NSInteger KSelectedMaxNums = 9;
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     self.view.backgroundColor = UIColorFromRGB(0xf2f2f4);
-    self.navigationBar.alpha = 0.8f;
-    self.navigationBar.translucent = YES;
+    self.title = self.pickerGroup.groupName;
+    self.navigationController.navigationBar.alpha = 0.8f;
+    self.navigationController.navigationBar.translucent = YES;
     [self.view addSubview:self.collectionView];
-    [self.view addSubview:self.navigationBar];
     [self.view addSubview:self.previewLabel];
     [self.view addSubview:self.sendButton];
     [self getAlbumGroupModel];
-    [self setNavigationBarItem];
     [self.view setNeedsUpdateConstraints];
 }
 
@@ -91,7 +89,6 @@ const NSInteger KSelectedMaxNums = 9;
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    _selectedPictureNums = 0;
     return self.dataSourcesArray.count;
 }
 
@@ -100,9 +97,8 @@ const NSInteger KSelectedMaxNums = 9;
     DS_PhotoAlbumCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     DS_PhotoAssets *photoAssets = self.dataSourcesArray[indexPath.row];
     cell.assertModel = photoAssets;
-    if (photoAssets.isSelected) {
-        _selectedPictureNums++;
-    }
+    cell.index = indexPath.row;
+    cell.delegate = self;
     return cell;
 }
 
@@ -123,8 +119,24 @@ const NSInteger KSelectedMaxNums = 9;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    DS_PhotoAssets *photoAssets = self.dataSourcesArray[indexPath.row];
+}
+
+#pragma mark - DS_PhotoAlbumCellDelegate
+- (void)photoAlbumCellClicked:(DS_PhotoAlbumCell *)cell withIndexPathItem:(NSInteger)item
+{
+    DS_PhotoAssets *photoAssets = self.dataSourcesArray[item];
     photoAssets.selected = !photoAssets.isSelected;
+    if (photoAssets.selected) {
+        if (self.selectedDataArray.count >= 9) {
+            photoAssets.selected = NO;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:DS_CustomLocalizedString(@"You can only choose 9 picture", nil) message:@"" delegate:nil cancelButtonTitle:DS_CustomLocalizedString(@"I know", nil) otherButtonTitles:nil, nil];
+            [alertView show];
+            return;
+        }
+        [self.selectedDataArray addObject:photoAssets];
+    }else {
+        [self.selectedDataArray removeObject:photoAssets];
+    }
     [self.collectionView reloadData];
 }
 
@@ -133,6 +145,10 @@ const NSInteger KSelectedMaxNums = 9;
 - (void)getAlbumGroupModel
 {
     WEAKSELF;
+    if (self.pickerGroup) {
+        [self getAlbumPhotoData];
+        return;
+    }
     [[DS_PhotoAlbumDataModel shareInstance] getAllGroupWithPhotos:^(id org) {
         NSLog(@"%@",org);
         for (DS_PhotoPickerGroup *group in org) {
@@ -157,35 +173,39 @@ const NSInteger KSelectedMaxNums = 9;
             photoAssets.asset = asset;
             [weakSelf.dataSourcesArray addObject:photoAssets];
         }];
+        weakSelf.title = weakSelf.pickerGroup.groupName;
+        [weakSelf.collectionView reloadData];
     }];
 }
 
-- (void)setNavigationBarItem
-{
-    UILabel *rightlabel = [[UILabel alloc] init];
-    rightlabel.textColor = UIColorFromRGB(0xffffff);
-    self.rightItemLabel = rightlabel;
-    rightlabel.frame = CGRectMake(0, 0, 80, 44);
-    rightlabel.textAlignment = NSTextAlignmentRight;
-    rightlabel.text = DS_CustomLocalizedString(@"cancel",nil);
-    rightlabel.userInteractionEnabled = YES;
-    UITapGestureRecognizer *righttap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightItemAction)];
-    [rightlabel addGestureRecognizer:righttap];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightlabel];
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.frame = CGRectMake(0, 0, 100, 44);
-    titleLabel.text = DS_CustomLocalizedString(@"Recently Added", nil);
-    UINavigationItem *navigationBarTitle = [[UINavigationItem alloc] init];
-    navigationBarTitle.titleView = titleLabel;
-    navigationBarTitle.rightBarButtonItem = rightItem;
-    [self.navigationBar setItems:[NSArray arrayWithObject: navigationBarTitle]];
-}
+#pragma mark - pravite funs
+////设置右上角按钮
+//- (void)setNavigationBarItem
+//{
+//    UILabel *rightlabel = [[UILabel alloc] init];
+//    rightlabel.textColor = UIColorFromRGB(0xffffff);
+//    self.rightItemLabel = rightlabel;
+//    rightlabel.frame = CGRectMake(0, 0, 80, 44);
+//    rightlabel.textAlignment = NSTextAlignmentRight;
+//    rightlabel.text = DS_CustomLocalizedString(@"cancel",nil);
+//    rightlabel.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *righttap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightItemAction)];
+//    [rightlabel addGestureRecognizer:righttap];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightlabel];
+//    UILabel *titleLabel = [[UILabel alloc] init];
+//    titleLabel.textAlignment = NSTextAlignmentCenter;
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.frame = CGRectMake(0, 0, 100, 44);
+//    titleLabel.text = DS_CustomLocalizedString(@"Recently Added", nil);
+//    UINavigationItem *navigationBarTitle = [[UINavigationItem alloc] init];
+//    navigationBarTitle.titleView = titleLabel;
+//    navigationBarTitle.rightBarButtonItem = rightItem;
+//    [self.navigationBar setItems:[NSArray arrayWithObject: navigationBarTitle]];
+//}
 
 - (void)rightItemAction
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - getter
@@ -198,23 +218,15 @@ const NSInteger KSelectedMaxNums = 9;
         layout.minimumLineSpacing = 3.;
         layout.minimumInteritemSpacing = 3.;
         layout.sectionInset = UIEdgeInsetsMake(0, 3, 0, 3);
-        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){0,0,UISCREENWIDTH,UISCREENHEIGHT - KBottomHeight} collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){0,-64,UISCREENWIDTH,UISCREENHEIGHT - KBottomHeight} collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        _collectionView.alwaysBounceVertical = YES;
         _collectionView.backgroundColor = [UIColor whiteColor];
         [_collectionView registerClass:[DS_PhotoAlbumCell class] forCellWithReuseIdentifier:identifier];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifierSupplementaryView];
     }
     return _collectionView;
-}
-
-- (UINavigationBar *)navigationBar
-{
-    if (!_navigationBar) {
-        _navigationBar = [[UINavigationBar alloc] init];
-        _navigationBar.frame = CGRectMake(0, 0, UISCREENWIDTH, 64);
-    }
-    return _navigationBar;
 }
 
 - (UILabel *)previewLabel
@@ -243,6 +255,15 @@ const NSInteger KSelectedMaxNums = 9;
     }
     return _dataSourcesArray;
 }
+
+- (NSMutableArray *)selectedDataArray
+{
+    if (!_selectedDataArray) {
+        _selectedDataArray = [NSMutableArray array];
+    }
+    return _selectedDataArray;
+}
+
 @end
 
 @implementation DS_PhotoButton
