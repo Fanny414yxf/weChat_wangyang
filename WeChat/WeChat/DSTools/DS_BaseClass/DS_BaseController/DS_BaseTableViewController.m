@@ -259,12 +259,12 @@ static NSString *identifier = @"UITableViewCellDS";
 
 - (CGFloat)headerHeight
 {
-    return 0.f;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)footerHeight
 {
-    return 0.f;
+    return CGFLOAT_MIN;
 }
 
 - (void)dealloc

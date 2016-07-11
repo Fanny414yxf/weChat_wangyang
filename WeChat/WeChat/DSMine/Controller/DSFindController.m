@@ -48,7 +48,7 @@ static NSString *identifier = @"DS_FindCell";
 
 - (CGFloat)footerHeight
 {
-    return 0.f;
+    return CGFLOAT_MIN;
 }
 
 - (void)registerTableViewCellClass

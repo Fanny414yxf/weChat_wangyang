@@ -15,7 +15,8 @@ static NSString *const login = @"isFirstApp";
     NSArray *languages = [NSLocale preferredLanguages];
     NSString *currentLanguage = [languages objectAtIndex:0];
 #if TARGET_IPHONE_SIMULATOR
-    currentLanguage = [currentLanguage substringToIndex:currentLanguage.length - 3];
+    if(currentLanguage.length > 2)
+        currentLanguage = [currentLanguage substringToIndex:currentLanguage.length - 3];
 #else
     //包含繁体中文
     if ([currentLanguage containsString:@"-CN"]) {

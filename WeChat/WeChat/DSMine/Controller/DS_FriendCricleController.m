@@ -139,7 +139,13 @@ static NSString *identifier = @"DS_FriendCricleCell";
     }
     //header scoroll follow tableview
     CGRect rect = self.headerView.frame;
-    rect.origin = CGPointMake(0, -point.y - ceil(UISCREENHEIGHT * 0.3) + 70);
+    CGFloat height = 80;
+    if (UISCREENWIDTH == 375) {
+        height = 70;
+    }else if (UISCREENWIDTH < 375) {
+        height = 60;
+    }
+    rect.origin = CGPointMake(0, -point.y - ceil(UISCREENHEIGHT * 0.3) + height);
     self.headerView.frame = rect;
 }
 
