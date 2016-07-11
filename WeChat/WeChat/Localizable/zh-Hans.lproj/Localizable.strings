@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  WeChat
-
-  Created by wangyang on 16/5/14.
-  Copyright © 2016年 wangyang. All rights reserved.
-*/
+/*
+ Localizable.strings
+ WeChat
+ 
+ Created by wangyang on 16/5/14.
+ Copyright © 2016年 wangyang. All rights reserved.
+ */
 
 "login" = "登录";
 "signUp" = "注册";
@@ -76,4 +76,8 @@
 "I know" = "我知道";
 "PhotoAlbum" = "照片";
 "Back" = "返回";
+"Slide up to cancel" = "手指上滑，取消发送";
+"Release to cancel" = "松开手指，取消发送";
+"Message too short" = "说话时间太短";
+
 

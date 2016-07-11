@@ -25,6 +25,14 @@ typedef NS_ENUM(NSInteger,DS_KeyboardViewFuncItemType) {
     DS_KeyboardViewFuncItemTypeWallet       //卡券
 };
 
+typedef NS_ENUM(NSInteger, DS_KeyboardViewVoicePressType) {
+    DS_KeyboardViewVoicePressTypePress,
+    DS_KeyboardViewVoicePressTypeDragExit,
+    DS_KeyboardViewVoicePressTypeDragEnter,
+    DS_KeyboardViewVoicePressTypeSend,
+    DS_KeyboardViewVoicePressTypeCancel
+};
+
 @protocol DS_KeyboardViewDelegate <NSObject>
 @optional
 
@@ -44,6 +52,9 @@ typedef NS_ENUM(NSInteger,DS_KeyboardViewFuncItemType) {
 - (void)keyBoardSendMsgTextView:(DS_KeyboardView *)view sendMsgText:(NSString *)text;
 //- (void)keyBoardInputClear:(DS_KeyboardView *)view;
 
+//- (void)keyBoardSendVoice:(DS_KeyboardView *)view voicePressState:(BOOL)pressState;
+
+- (void)keyBoardSendVoice:(DS_KeyboardView *)view voiceDragState:(DS_KeyboardViewVoicePressType)voiceType;
 @end
 
 @interface DS_KeyboardView : UIView

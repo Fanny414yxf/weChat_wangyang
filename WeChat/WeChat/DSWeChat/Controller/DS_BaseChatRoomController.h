@@ -30,5 +30,9 @@ extern const NSTimeInterval KtimeDuration;
  */
 - (void)scrollViewToBottom;
 
+/**
+ * 开始发送语音
+ */
+- (void)sendVoiceAction;
 
 @end

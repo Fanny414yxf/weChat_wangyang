@@ -52,6 +52,11 @@
     [self scrollViewToBottom];
 }
 
+- (void)sendVoiceAction
+{
+    NSLog(@"开始发送语音");
+}
+
 #pragma mark - 组建消息结构体
 - (DS_WeChatMsgModel *)cofigMsgStrcutWithMsg:(NSString *)msg
 {

@@ -44,7 +44,12 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
         unsigned int keyBoardDidDismiss  : 1;
         unsigned int keyBoardItemCellClick : 1;
         unsigned int keyBoardSendMsg  : 1;
-//        unsigned int keyBoradInputClear : 1;
+        //        unsigned int keyBoradInputClear : 1;
+        unsigned int keyBoardSendVoice : 1;
+        unsigned int keyBoardSendVoiceCancel : 1;
+        unsigned int keyBoardSendVoiceDragExit  : 1;
+        unsigned int keyBoardSendVoiceDragEnter : 1;
+        unsigned int keyBoardSendVoiceSend : 1;
     }KeyBoardDelegate;
     
     //记录inputView文字行数
@@ -171,9 +176,9 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
         if (KeyBoardDelegate.KeyBoardWillShow) {
             [self.delegate keyBoardInputWillShow:self];
         }
-//        if (KeyBoardDelegate.keyBoradInputClear) {
-//            [self.delegate keyBoardInputClear:self];
-//        }
+        //        if (KeyBoardDelegate.keyBoradInputClear) {
+        //            [self.delegate keyBoardInputClear:self];
+        //        }
         return NO;
     }
     return YES;
@@ -184,7 +189,7 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
     NSInteger row = [self calculateInputTextViewHeightWithText:textView.text];
     CGRect rect = self.frame;
     if (row > KInputTextViewMaxNumbers) {
-//        textView.scrollEnabled = YES;
+        //        textView.scrollEnabled = YES;
         return;
     }
     //必须更新动画transform基准值，否则在输入超过2行时，滑动页面输入框 CGAffineTransformIdentity失效
@@ -312,15 +317,15 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
         rect.size.height = _recordInputTextHeight + KFunsPanelHeight;
         height = KFunsPanelHeight;
     }
-//    if (_recordTextNums > 1) {
-//        //需要重置inputView在多行显示的高度
-//        rect.origin.y = UISCREENHEIGHT - _recordInputTextHeight - 64;
-//        WEAKSELF;
-//        [self.funcBackGroudView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.right.and.top.and.left.mas_equalTo(weakSelf);
-//            make.height.mas_equalTo(_recordInputTextHeight);
-//        }];
-//    }
+    //    if (_recordTextNums > 1) {
+    //        //需要重置inputView在多行显示的高度
+    //        rect.origin.y = UISCREENHEIGHT - _recordInputTextHeight - 64;
+    //        WEAKSELF;
+    //        [self.funcBackGroudView mas_updateConstraints:^(MASConstraintMaker *make) {
+    //            make.right.and.top.and.left.mas_equalTo(weakSelf);
+    //            make.height.mas_equalTo(_recordInputTextHeight);
+    //        }];
+    //    }
     
     self.frame = rect;
     UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
@@ -366,14 +371,14 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
         }
         CGRect rect = self.frame;
         if (_recordTextNums > 1) {
-//            //需要重置pressButton按钮的高度为原始高度
-//            rect.size.height = KBoardInputBgHeight;
-//            rect.origin.y = UISCREENHEIGHT - KBoardInputBgHeight - 64;
-//            WEAKSELF;
-//            [self.funcBackGroudView mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.right.and.top.and.left.mas_equalTo(weakSelf);
-//                make.height.mas_equalTo(KBoardInputBgHeight);
-//            }];
+            //            //需要重置pressButton按钮的高度为原始高度
+            //            rect.size.height = KBoardInputBgHeight;
+            //            rect.origin.y = UISCREENHEIGHT - KBoardInputBgHeight - 64;
+            //            WEAKSELF;
+            //            [self.funcBackGroudView mas_updateConstraints:^(MASConstraintMaker *make) {
+            //                make.right.and.top.and.left.mas_equalTo(weakSelf);
+            //                make.height.mas_equalTo(KBoardInputBgHeight);
+            //            }];
         }else {
             rect.size.height = _recordInputTextHeight;
         }
@@ -427,6 +432,41 @@ typedef NS_ENUM(NSInteger,KBoardFunsType) {
     }];
 }
 
+#pragma mark - send voice func
+- (void)sendVoiceAction
+{
+    if (KeyBoardDelegate.keyBoardSendVoice)
+        [self.delegate keyBoardSendVoice:self voiceDragState:DS_KeyboardViewVoicePressTypePress];
+}
+
+- (void)sendVoiceSend
+{
+    if (KeyBoardDelegate.keyBoardSendVoiceSend) {
+        [self.delegate keyBoardSendVoice:self voiceDragState:DS_KeyboardViewVoicePressTypeSend];
+    }
+}
+
+- (void)sendVoiceCancel
+{
+    if (KeyBoardDelegate.keyBoardSendVoiceCancel) {
+        [self.delegate keyBoardSendVoice:self voiceDragState:DS_KeyboardViewVoicePressTypeCancel];
+    }
+}
+
+- (void)sendVoiceDragExit
+{
+    if (KeyBoardDelegate.keyBoardSendVoiceDragExit) {
+        [self.delegate keyBoardSendVoice:self voiceDragState:DS_KeyboardViewVoicePressTypeDragExit];
+    }
+}
+
+- (void)sendVoiceDragEnter
+{
+    if (KeyBoardDelegate.keyBoardSendVoiceDragEnter) {
+        [self.delegate keyBoardSendVoice:self voiceDragState:DS_KeyboardViewVoicePressTypeDragEnter];
+    }
+}
+
 #pragma mark - pravite funs
 static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCurve curve)
 {
@@ -459,7 +499,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 {
     if ([self.funsView superview]) {
         //不涉及到键盘切换，不需要模拟键盘弹出的过程
-//        UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
+        //        UIViewAnimationOptions opt = animationOptionsWithCurve(_keyboardAnimationCurve);
         [UIView animateWithDuration:_keyboardAnimationDuration animations:^{
             self.funsView.frame = CGRectMake(0, self.frame.size.height, UISCREENWIDTH, KFunsPanelHeight);
         } completion:^(BOOL finished) {
@@ -515,7 +555,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 }
 
 #pragma mark - setter 赋值
- - (void)setDelegate:(id<DS_KeyboardViewDelegate>)delegate
+- (void)setDelegate:(id<DS_KeyboardViewDelegate>)delegate
 {
     _delegate = delegate;
     KeyBoardDelegate.KeyBoardWillShow = [_delegate respondsToSelector:@selector(keyBoardInputWillShow:)];
@@ -524,7 +564,12 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     KeyBoardDelegate.keyBoardDidDismiss = [_delegate respondsToSelector:@selector(keyBoardInputDidDismiss:)];
     KeyBoardDelegate.keyBoardItemCellClick = [_delegate respondsToSelector:@selector(keyBoardFunsItemCell:currentPanelPage:currentPanelIndex:)];
     KeyBoardDelegate.keyBoardSendMsg = [_delegate respondsToSelector:@selector(keyBoardSendMsgTextView:sendMsgText:)];
-//    KeyBoardDelegate.keyBoradInputClear = [_delegate respondsToSelector:@selector(keyBoardInputClear:)];
+    KeyBoardDelegate.keyBoardSendVoice = [_delegate respondsToSelector:@selector(keyBoardSendVoice:voiceDragState:)];
+    KeyBoardDelegate.keyBoardSendVoiceCancel = [_delegate respondsToSelector:@selector(keyBoardSendVoice:voiceDragState:)];
+    KeyBoardDelegate.keyBoardSendVoiceDragExit = [_delegate respondsToSelector:@selector(keyBoardSendVoice:voiceDragState:)];
+    KeyBoardDelegate.keyBoardSendVoiceDragEnter = [_delegate respondsToSelector:@selector(keyBoardSendVoice:voiceDragState:)];
+    KeyBoardDelegate.keyBoardSendVoiceSend = [_delegate respondsToSelector:@selector(keyBoardSendVoice:voiceDragState:)];
+    //    KeyBoardDelegate.keyBoradInputClear = [_delegate respondsToSelector:@selector(keyBoardInputClear:)];
 }
 
 #pragma mark - getter
@@ -549,8 +594,8 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         _inputView.enablesReturnKeyAutomatically = YES;
         _inputView.layoutManager.allowsNonContiguousLayout = NO;
         _inputView.textAlignment = NSTextAlignmentNatural;
-//        _inputView.alwaysBounceVertical = YES;
-//        _inputView.bounces = NO;
+        //        _inputView.alwaysBounceVertical = YES;
+        //        _inputView.bounces = NO;
     }
     return _inputView;
 }
@@ -591,7 +636,6 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 {
     if (!_pressButton) {
         _pressButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_pressButton addTarget:self action:@selector(pressButton:) forControlEvents:UIControlEventTouchUpInside];
         [_pressButton setTitle:DS_CustomLocalizedString(@"pressVocie", nil) forState:UIControlStateNormal];
         [_pressButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_pressButton setBackgroundColor:UIColorFromRGB(0xf4f4f6)];
@@ -601,6 +645,16 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
         CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 221/255.,221/255. ,221/255., 1 });
         [_pressButton.layer setBorderColor:colorref];
+        //开始按下
+        [_pressButton addTarget:self action:@selector(sendVoiceAction) forControlEvents:UIControlEventTouchDown];
+        //确认发送
+        [_pressButton addTarget:self action:@selector(sendVoiceSend) forControlEvents:UIControlEventTouchUpInside];
+        //向外拖动
+        [_pressButton addTarget:self action:@selector(sendVoiceDragExit) forControlEvents:UIControlEventTouchDragExit];
+        //向内拖动
+        [_pressButton addTarget:self action:@selector(sendVoiceDragEnter) forControlEvents:UIControlEventTouchDragEnter];
+        //取消发送
+        [_pressButton addTarget:self action:@selector(sendVoiceCancel) forControlEvents:UIControlEventTouchUpOutside];
     }
     return _pressButton;
 }

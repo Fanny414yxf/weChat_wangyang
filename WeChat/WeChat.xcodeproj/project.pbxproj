@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09EA33FC1D33F2B2002E350A /* DS_BaseChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = D304B4231CEB42FA00FE1F03 /* DS_BaseChatRoomController.m */; };
+		09EA34011D33F2D8002E350A /* DS_SendVoiceItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EA33FE1D33F2D8002E350A /* DS_SendVoiceItemView.m */; };
+		09EA34021D33F2D8002E350A /* DS_SendVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EA34001D33F2D8002E350A /* DS_SendVoiceView.m */; };
 		D302A6FD1D14F2B000866EB2 /* DS_MineSettingControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */; };
 		D302A7001D15056B00866EB2 /* DS_MineGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A6FF1D15056B00866EB2 /* DS_MineGeneralController.m */; };
 		D302A7031D152E2200866EB2 /* DS_FindScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D302A7021D152E2200866EB2 /* DS_FindScanController.m */; };
@@ -25,7 +28,6 @@
 		D30402231CE70C0900B1D9B4 /* DS_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30402221CE70C0900B1D9B4 /* DS_BaseViewController.m */; };
 		D30402261CE7101A00B1D9B4 /* DS_LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30402251CE7101A00B1D9B4 /* DS_LanguageController.m */; };
 		D3048CDE1CC8797000ABBC32 /* DS_xmppJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D3048CDD1CC8797000ABBC32 /* DS_xmppJoin.m */; };
-		D304B4241CEB42FA00FE1F03 /* DS_BaseChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = D304B4231CEB42FA00FE1F03 /* DS_BaseChatRoomController.m */; };
 		D304B4271CEB44A700FE1F03 /* DS_BaseChatRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D304B4261CEB44A700FE1F03 /* DS_BaseChatRoomCell.m */; };
 		D304B42A1CEB469400FE1F03 /* DS_ChatRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D304B4291CEB469400FE1F03 /* DS_ChatRoomManager.m */; };
 		D304B42D1CEB4F6A00FE1F03 /* DS_ChatBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D304B42C1CEB4F6A00FE1F03 /* DS_ChatBubbleView.m */; };
@@ -403,6 +405,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09EA33FD1D33F2D8002E350A /* DS_SendVoiceItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_SendVoiceItemView.h; sourceTree = "<group>"; };
+		09EA33FE1D33F2D8002E350A /* DS_SendVoiceItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_SendVoiceItemView.m; sourceTree = "<group>"; };
+		09EA33FF1D33F2D8002E350A /* DS_SendVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_SendVoiceView.h; sourceTree = "<group>"; };
+		09EA34001D33F2D8002E350A /* DS_SendVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_SendVoiceView.m; sourceTree = "<group>"; };
 		D302A6FB1D14F2B000866EB2 /* DS_MineSettingControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineSettingControllerManager.h; sourceTree = "<group>"; };
 		D302A6FC1D14F2B000866EB2 /* DS_MineSettingControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DS_MineSettingControllerManager.m; sourceTree = "<group>"; };
 		D302A6FE1D15056B00866EB2 /* DS_MineGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DS_MineGeneralController.h; sourceTree = "<group>"; };
@@ -1125,6 +1131,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09EA33FB1D33F253002E350A /* SendVoiceView */ = {
+			isa = PBXGroup;
+			children = (
+				09EA33FD1D33F2D8002E350A /* DS_SendVoiceItemView.h */,
+				09EA33FE1D33F2D8002E350A /* DS_SendVoiceItemView.m */,
+				09EA33FF1D33F2D8002E350A /* DS_SendVoiceView.h */,
+				09EA34001D33F2D8002E350A /* DS_SendVoiceView.m */,
+			);
+			name = SendVoiceView;
+			sourceTree = "<group>";
+		};
 		D302A70C1D17884100866EB2 /* DS_ChoosePhoto */ = {
 			isa = PBXGroup;
 			children = (
@@ -2785,6 +2802,7 @@
 		D3ED16A91BEB57AB00F74219 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09EA33FB1D33F253002E350A /* SendVoiceView */,
 				D33F8B851D0ABF530085C01F /* KeyBoardView */,
 				D3235FE61CE83B8F00D235CF /* DS_WeChatViewCell.h */,
 				D3235FE71CE83B8F00D235CF /* DS_WeChatViewCell.m */,
@@ -2873,7 +2891,7 @@
 				TargetAttributes = {
 					D377A9A61BE8A53700196714 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = X3V26CU6ZD;
+						DevelopmentTeam = G33MN8M2BW;
 					};
 					D377A9BF1BE8A53700196714 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -3116,6 +3134,7 @@
 				D33BC7111CC7B76300D0DE02 /* XMPPMessage+XEP_0066.m in Sources */,
 				D33BC6DD1CC7B76300D0DE02 /* XMPPGoogleSharedStatus.m in Sources */,
 				D35FF94D1CF3405400B07C68 /* DS_AddressBookModel.m in Sources */,
+				09EA33FC1D33F2B2002E350A /* DS_BaseChatRoomController.m in Sources */,
 				D33BC70E1CC7B76300D0DE02 /* XMPPPubSub.m in Sources */,
 				D3759FCC1D07FDA90034E501 /* YYSpriteSheetImage.m in Sources */,
 				D3ED16AF1BEB57DA00F74219 /* DSAddressBookController.m in Sources */,
@@ -3141,7 +3160,6 @@
 				D33BC6BF1CC7B76300D0DE02 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
 				D302A7141D178D4E00866EB2 /* DS_PhotoAlbumDataModel.m in Sources */,
 				D33BC6C31CC7B76300D0DE02 /* NSXMLElement+XMPP.m in Sources */,
-				D304B4241CEB42FA00FE1F03 /* DS_BaseChatRoomController.m in Sources */,
 				D33BC7041CC7B76300D0DE02 /* XMPPvCardTempAdr.m in Sources */,
 				D3DC31061CF9395D006288C0 /* DS_AddressContactDetailController.m in Sources */,
 				D304B42D1CEB4F6A00FE1F03 /* DS_ChatBubbleView.m in Sources */,
@@ -3272,6 +3290,8 @@
 				D3F550981CEF088500AC648C /* DS_SearchBarView.m in Sources */,
 				D33BC6CF1CC7B76300D0DE02 /* XMPPIDTracker.m in Sources */,
 				D33BC7261CC7B76300D0DE02 /* XMPPMessageDeliveryReceipts.m in Sources */,
+				09EA34021D33F2D8002E350A /* DS_SendVoiceView.m in Sources */,
+				09EA34011D33F2D8002E350A /* DS_SendVoiceItemView.m in Sources */,
 				D30DB5B91CFBEAF9008B1B5D /* DS_FriendCricleCell.m in Sources */,
 				D33BC7061CC7B76300D0DE02 /* XMPPvCardTempBase.m in Sources */,
 				D33BC71C1CC7B76300D0DE02 /* XMPPCapabilities.m in Sources */,

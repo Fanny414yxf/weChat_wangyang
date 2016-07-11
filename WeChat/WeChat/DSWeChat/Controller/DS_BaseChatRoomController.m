@@ -11,13 +11,17 @@
 #import "DS_ChatRoomManager.h"
 #import "NSTimer+ScheduleTimer.h"
 #import "DS_BaseChatRoomControllerManager.h"
+#import "DS_SendVoiceView.h"
 
 const NSTimeInterval KtimeDuration = 0.15f;
+const NSTimeInterval kSendVoiceShortDuration = 1.f;
 static NSString *identifier = @"DS_BaseChatRoomCell";
 
 @interface DS_BaseChatRoomController () {
     //当弹出键盘时，内容会向上滚动，不应该让键盘dissmiss
     BOOL _scrollViewState;
+    //记录语音发送按下时间
+    BOOL _recordSendVoiceTimeDuration;
 }
 @end
 
@@ -41,7 +45,7 @@ static NSString *identifier = @"DS_BaseChatRoomCell";
 {
     CGFloat margin = 0.f;
     if (state) {
-       margin = self.keyBoardView.frame.size.height;
+        margin = self.keyBoardView.frame.size.height;
     }
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, margin, 0));
@@ -152,7 +156,7 @@ static NSString *identifier = @"DS_BaseChatRoomCell";
 {
     [self updateViewsConstraintsWithState:NO];
     [self setTableViewInsetsWithBottomValue:self.view.frame.size.height
-   - self.keyBoardView.frame.origin.y];
+     - self.keyBoardView.frame.origin.y];
 }
 
 - (void)keyBoardInputDidDismiss:(DS_KeyboardView *)view
@@ -201,6 +205,49 @@ static NSString *identifier = @"DS_BaseChatRoomCell";
     NSLog(@"子类重写发送数据");
 }
 
+- (void)keyBoardSendVoice:(DS_KeyboardView *)view voiceDragState:(DS_KeyboardViewVoicePressType)voiceType
+{
+    switch (voiceType) {
+        case DS_KeyboardViewVoicePressTypePress:
+        {
+            [[DS_SendVoiceView instance] showVoiceViewType:SendVoiceViewTypeSendVoice];
+            _recordSendVoiceTimeDuration = YES;
+            _timer = [NSTimer scheduledTimerWithTimeInterval:kSendVoiceShortDuration block:^{
+                _recordSendVoiceTimeDuration = NO;
+            } repeats:NO];
+        }
+            break;
+        case DS_KeyboardViewVoicePressTypeDragExit:
+            [[DS_SendVoiceView instance] showVoiceViewType:SendVoiceViewTypeCancelVoice];
+            break;
+        case DS_KeyboardViewVoicePressTypeDragEnter:
+            [[DS_SendVoiceView instance] showVoiceViewType:SendVoiceViewTypeSendVoice];
+            break;
+        case DS_KeyboardViewVoicePressTypeSend:
+        {
+            if (_recordSendVoiceTimeDuration) {
+                [[DS_SendVoiceView instance] showVoiceViewType:SendVoiceViewTypeShortTime];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [[DS_SendVoiceView instance] dismiss];
+                });
+                break;
+            }else {
+                [self sendVoiceAction];
+            }
+        }
+        case DS_KeyboardViewVoicePressTypeCancel:
+            [[DS_SendVoiceView instance] dismiss];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - 子类重写，组装数据发送
+- (void)sendVoiceAction
+{
+}
 
 #pragma mark - getter
 - (DS_KeyboardView *)keyBoardView

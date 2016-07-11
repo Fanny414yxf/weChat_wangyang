@@ -30,8 +30,6 @@ static NSString *identifier = @"DS_WeChatViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     self.cellHeight = 60.f;
     [self.view addSubview:self.seachBarView];
     self.searchController.active = NO;
