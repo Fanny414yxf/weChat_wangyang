@@ -18,11 +18,13 @@
 #import "DS_FriendCriclePraiseAndCommentView.h"
 
 static NSString *identifier = @"DS_FriendCricleCell";
-//@protocol DS_FriendCricleCellPraise_CommentProtocol;
+
 @interface DS_FriendCricleController ()<DS_FriendCricleCellDelegate>
+
 @property (nonatomic,strong)DS_FriendCricleHeaderView *headerView;
 @property (nonatomic,strong)UIView *bgBottomView;
 @property (nonatomic,strong)DS_FriendCriclePraiseAndCommentView *commentView;
+
 @end
 
 @implementation DS_FriendCricleController
